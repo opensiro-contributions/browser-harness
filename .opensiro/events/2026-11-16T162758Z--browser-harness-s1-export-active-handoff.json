@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "id": "2026-11-16T162758Z--browser-harness-s1-export-active-handoff",
+  "recorded_at": "2026-11-16T16:27:58Z",
+  "actor": "OpenSiro assistant executing owner-directed active Browser Harness PR preparation",
+  "kind": "UPGRADE_PR_HANDOFF",
+  "contribution_id": "browser-harness-s1-domain-skill-index-export",
+  "decision": "OWNER_DIRECTED_ACTIVE_PR_PREPARATION_REQUIRES_EXACT_PUBLIC_REVIEW_CONSENT",
+  "evidence_urls": [
+    "https://github.com/opensiro-contributions/browser-harness/commit/13c404281b89003c3675d64a903cdc98b2139a96",
+    "https://github.com/opensiro-contributions/browser-harness/blob/13c404281b89003c3675d64a903cdc98b2139a96/tests/unit/test_domain_skills.py",
+    "https://github.com/opensiro-contributions/browser-harness/blob/13c404281b89003c3675d64a903cdc98b2139a96/src/browser_harness/domain_skills.py",
+    "https://github.com/opensiro-contributions/browser-harness/compare/main...opensiro/upgrade-s1-domain-skill-export-20261116",
+    "https://github.com/browser-use/browser-harness/issues/155"
+  ],
+  "summary": "The owner requested continued end-to-end Browser Harness work through PR preparation. Fork attention WATCHING -> ACTIVE only for current authorized engineering and review preparation; owner_control ALLOW is preserved. Added exact branch name needed by current Upstream handoff validator and the known native/model test limitations. The public fork-local review PR and third-party PR remain NOT_CREATED and independently consent gated.",
+  "next_action": "Code and native functional proof are ready in the pinned fork branch; show the exact fork-local PR title/body, verified 5-file diff and all evidence URLs to the owner, and obtain separate exact current-conversation consent BEFORE creating the PUBLIC fork-local review PR. External PR not created or authorized. No LLM outcome or autonomous skill-learning improvement claimed."
+}

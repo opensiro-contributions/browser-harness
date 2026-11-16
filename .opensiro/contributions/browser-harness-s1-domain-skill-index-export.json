@@ -30,10 +30,11 @@
     "https://github.com/browser-use/browser-harness/issues/155"
   ],
   "work_branches": [
+    "opensiro/upgrade-s1-domain-skill-export-20261116",
     "https://github.com/opensiro-contributions/browser-harness/tree/opensiro/upgrade-s1-domain-skill-export-20261116"
   ],
   "external_prs": [],
-  "last_event_id": "2026-11-16T162038Z--browser-harness-s1-domain-skill-export-validated",
+  "last_event_id": "2026-11-16T162758Z--browser-harness-s1-export-active-handoff",
   "functional_evidence": {
     "actor": "User or coding agent integrating Browser Harness domain workflows with a lazy-loaded SKILL.md-indexing agent such as Hermes.",
     "task": "Convert existing site-specific Markdown into separately name-addressable SKILL.md entries without loading the primary Browser Harness skill or starting a daemon.",
@@ -44,5 +45,8 @@
     "vsm_scope": "S1 operational repertoire accessibility only. No proof the LLM reads/chooses a skill, improved real task outcome, independent learning, or change to canonical S1 autonomy grade.",
     "overlap": "Original issue #155 completed historically; PR #163 closed unmerged (documentation only); PR #1025 implements saved script replay, not SKILL.md indexing; PR #908 handles the primary skill/Cloud behavior, not export.",
     "disposition": "Material narrow functional delta supported by native integration; external agent task outcome remains untested."
+  },
+  "validation_summary": {
+    "not_validated": "No live Hermes agent or another full lazy-loader integration test; no LLM choosing/using a skill, no task-quality A/B, no endogenous construction, no output pruning on deleted source files, no security certification of imported website instructions."
   }
 }

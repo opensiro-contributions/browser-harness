@@ -2,8 +2,8 @@
   "schema_version": 1,
   "original_repository": "browser-use/browser-harness",
   "working_fork": "opensiro-contributions/browser-harness",
-  "attention": "WATCHING",
+  "attention": "ACTIVE",
   "owner_control": "ALLOW",
-  "last_event_id": "2026-11-16T162038Z--browser-harness-s1-domain-skill-export-validated",
-  "updated_at": "2026-11-16T16:20:38Z"
+  "last_event_id": "2026-11-16T162758Z--browser-harness-s1-export-active-handoff",
+  "updated_at": "2026-11-16T16:27:58Z"
 }
