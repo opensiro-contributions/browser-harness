@@ -260,6 +260,14 @@ If you get stuck on a browser mechanic, check https://github.com/browser-use/bro
 - Trusted orchestrators that already provisioned an exact named daemon can set
   `BH_REQUIRE_EXISTING_DAEMON=1`. Each CLI call then health-checks and reuses
   that daemon or fails closed; it never auto-starts or discovers another Chrome.
+  To check a specific tab before executing a script, additionally set
+  `BH_PREFLIGHT_TARGET_ID=<exact target ID>`. The preflight uses
+  `Target.getTargetInfo` on that ID instead of enumerating all tabs via
+  `Target.getTargets`, and refuses a missing, mismatched, or non-page target.
+  This is an existence preflight only: it **does not prove target ownership or
+  enforce per-caller CDP/event/recording isolation**. An orchestrator must
+  independently enforce those boundaries; never use this as an authorization gate.
+  The target flag alone (without existing-daemon mode) is rejected.
 - Core helpers stay short. Put task-specific helper additions in `$BH_AGENT_WORKSPACE/agent_helpers.py`.
 
 ## Gotchas

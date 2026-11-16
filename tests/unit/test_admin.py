@@ -185,6 +185,47 @@ def test_require_existing_daemon_probes_cdp(monkeypatch):
     assert sock.closed is True
 
 
+def test_require_existing_daemon_exact_target_preflight(monkeypatch):
+    sock = FakeSocket(response=b'{"result":{"targetInfo":{"targetId":"owned-1","type":"page"}}}\n')
+    monkeypatch.setenv("BH_PREFLIGHT_TARGET_ID", "owned-1")
+    monkeypatch.setattr(admin, "daemon_alive", lambda _name: True)
+    monkeypatch.setattr(admin.ipc, "connect", lambda _name, timeout: (sock, None))
+
+    admin.require_existing_daemon("scoped")
+
+    assert b'"method": "Target.getTargetInfo"' in sock.sent
+    assert b'"targetId": "owned-1"' in sock.sent
+    assert b"Target.getTargets" not in sock.sent
+    assert sock.closed is True
+
+
+@pytest.mark.parametrize("response", [
+    b'{"result":{"targetInfo":{"targetId":"someone-else","type":"page"}}}\n',
+    b'{"result":{"targetInfo":{"targetId":"owned-1","type":"service_worker"}}}\n',
+    b'{"result":{"targetInfo":null}}\n',
+    b'{"error":"No target with given id"}\n',
+])
+def test_require_existing_daemon_exact_target_fails_closed(monkeypatch, response):
+    sock = FakeSocket(response=response)
+    monkeypatch.setenv("BH_PREFLIGHT_TARGET_ID", "owned-1")
+    monkeypatch.setattr(admin, "daemon_alive", lambda _name: True)
+    monkeypatch.setattr(admin.ipc, "connect", lambda _name, timeout: (sock, None))
+
+    with pytest.raises(RuntimeError, match="CDP health check|did not confirm"):
+        admin.require_existing_daemon("scoped")
+
+    assert b"Target.getTargets" not in sock.sent
+    assert sock.closed is True
+
+
+def test_require_existing_daemon_refuses_blank_target_without_ipc(monkeypatch):
+    monkeypatch.setenv("BH_PREFLIGHT_TARGET_ID", "  ")
+    monkeypatch.setattr(admin, "daemon_alive", lambda _name: pytest.fail("must reject before health"))
+
+    with pytest.raises(RuntimeError, match="non-empty target"):
+        admin.require_existing_daemon("scoped")
+
+
 def test_strict_remote_stop_propagates_daemon_error(monkeypatch):
     sock = FakeSocket(response=b'{"error":"billing stop failed"}\n')
     monkeypatch.setattr(admin.ipc, "identify", lambda _name, timeout: 123)

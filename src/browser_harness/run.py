@@ -388,6 +388,9 @@ def _run(args):
     cloud_admin = code.lstrip().startswith(("start_remote_daemon(", "stop_remote_daemon("))
     if not cloud_admin:
         require_existing = os.environ.get("BH_REQUIRE_EXISTING_DAEMON") == "1"
+        if os.environ.get("BH_PREFLIGHT_TARGET_ID") is not None and not require_existing:
+            print("browser-harness: BH_PREFLIGHT_TARGET_ID requires BH_REQUIRE_EXISTING_DAEMON=1", file=sys.stderr)
+            sys.exit(1)
         try:
             if require_existing:
                 require_existing_daemon()

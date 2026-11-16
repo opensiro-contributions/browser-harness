@@ -716,18 +716,32 @@ def require_existing_daemon(name=None):
     different local Chrome when that orchestrator-owned daemon dies.
     """
     daemon_name = name or NAME
+    # This opt-in check probes exactly one caller-specified target before
+    # executing code. It does NOT confer ownership or isolate later CDP calls.
+    target_id = os.environ.get("BH_PREFLIGHT_TARGET_ID")
+    if target_id is not None and not target_id.strip():
+        raise RuntimeError("BH_PREFLIGHT_TARGET_ID must name a non-empty target")
     if not daemon_alive(daemon_name):
         raise RuntimeError(f"required daemon {daemon_name!r} is not running")
+    method = "Target.getTargetInfo" if target_id is not None else "Target.getTargets"
+    params = {"targetId": target_id} if target_id is not None else {}
     try:
         s, token = ipc.connect(daemon_name, timeout=3.0)
         try:
-            resp = ipc.request(s, token, {"method": "Target.getTargets", "params": {}})
+            resp = ipc.request(s, token, {"method": method, "params": params})
         finally:
             s.close()
     except Exception as exc:
         raise RuntimeError(f"required daemon {daemon_name!r} is unhealthy: {exc}") from exc
-    if not isinstance(resp, dict) or "result" not in resp:
+    if not isinstance(resp, dict) or not isinstance(resp.get("result"), dict):
         raise RuntimeError(f"required daemon {daemon_name!r} failed its CDP health check")
+    if target_id is not None:
+        info = resp["result"].get("targetInfo")
+        if (not isinstance(info, dict) or info.get("targetId") != target_id
+                or info.get("type") != "page"):
+            raise RuntimeError(
+                f"required daemon {daemon_name!r} did not confirm the requested page target"
+            )
 
 
 def stop_remote_daemon(name="remote"):

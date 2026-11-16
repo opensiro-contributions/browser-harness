@@ -34,6 +34,23 @@ def test_require_existing_daemon_never_auto_starts(monkeypatch):
     mock_ensure.assert_not_called()
 
 
+def test_target_preflight_requires_existing_daemon_mode(monkeypatch, capsys):
+    monkeypatch.setenv("BH_PREFLIGHT_TARGET_ID", "owned-1")
+    monkeypatch.delenv("BH_REQUIRE_EXISTING_DAEMON", raising=False)
+    with patch.object(sys, "argv", ["browser-harness"]), \
+         patch("sys.stdin", StringIO("print('never runs')")), \
+         patch("browser_harness.run.ensure_daemon") as mock_ensure, \
+         patch("browser_harness.run.require_existing_daemon") as mock_require, \
+         patch("browser_harness.run.print_update_banner"):
+        with pytest.raises(SystemExit) as exc:
+            run.main()
+
+    assert exc.value.code == 1
+    assert "requires BH_REQUIRE_EXISTING_DAEMON=1" in capsys.readouterr().err
+    mock_ensure.assert_not_called()
+    mock_require.assert_not_called()
+
+
 def test_c_flag_is_rejected():
     with patch.object(sys, "argv", ["browser-harness", "-c", "print('old path')"]), \
          patch("sys.stdin", StringIO("print('ignored')")):
