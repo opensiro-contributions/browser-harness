@@ -230,6 +230,7 @@ recording path while the main agent returns the task result.
 
 If you get stuck on a browser mechanic, check https://github.com/browser-use/browser-harness/tree/main/interaction-skills.
 
+- action-recovery.md
 - connection.md
 - cookies.md
 - cross-origin-iframes.md
@@ -261,6 +262,7 @@ If you get stuck on a browser mechanic, check https://github.com/browser-use/bro
   `BH_REQUIRE_EXISTING_DAEMON=1`. Each CLI call then health-checks and reuses
   that daemon or fails closed; it never auto-starts or discovers another Chrome.
 - Core helpers stay short. Put task-specific helper additions in `$BH_AGENT_WORKSPACE/agent_helpers.py`.
+- For non-idempotent task actions across CLI restarts, see `interaction-skills/action-recovery.md` and use `guarded_action()` with an independently observed postcondition; do not infer completion from a click response.
 
 ## Gotchas
 
