@@ -268,6 +268,9 @@ If you get stuck on a browser mechanic, check https://github.com/browser-use/bro
   enforce per-caller CDP/event/recording isolation**. An orchestrator must
   independently enforce those boundaries; never use this as an authorization gate.
   The target flag alone (without existing-daemon mode) is rejected.
+  Without a target ID the preflight checks browser liveness, not any tabs.
+  For page-free health JSON use doctor --json --require-existing-daemon.
+  Neither probe grants caller-owned tab authorization.
 - Core helpers stay short. Put task-specific helper additions in `$BH_AGENT_WORKSPACE/agent_helpers.py`.
 
 ## Gotchas

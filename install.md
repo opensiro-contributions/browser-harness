@@ -107,6 +107,13 @@ browser-harness doctor --json --require-existing-daemon
 
 This prints a versioned JSON report and exits nonzero unless that exact daemon
 has a live browser connection. It never starts or discovers another browser.
+Strict health is browser-only: it does not enumerate tabs or inspect the
+currently attached page, and works before attaching any tab. Older daemons that cannot complete a browser-level CDP probe fail closed.
+
+With BH_REQUIRE_EXISTING_DAEMON=1, the CLI checks one exact page target when
+BH_PREFLIGHT_TARGET_ID is given, or browser-only liveness otherwise.
+Neither preflight proves ownership or enforces later tab isolation.
+The ordinary non-strict doctor retains current-page diagnostics.
 
 If this still fails, inspect `src/browser_harness/admin.py`, `src/browser_harness/daemon.py`, and `src/browser_harness/_ipc.py`.
 

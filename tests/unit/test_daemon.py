@@ -24,6 +24,15 @@ def test_publish_own_pid_never_truncates_parent_record(tmp_path, monkeypatch):
     assert pid_file.read_text() == expected
 
 
+
+
+def test_browser_health_uses_browser_scope_when_session_attached():
+    d = _fresh_daemon()
+    d.session = "someone-elses-tab-session"
+    response = asyncio.run(d.handle({"method": "Browser.getVersion", "params": {}}))
+    assert response == {"result": {}}
+    assert d.cdp.calls == [("Browser.getVersion", {}, None)]
+
 @pytest.mark.parametrize(
     ("url", "label"),
     [

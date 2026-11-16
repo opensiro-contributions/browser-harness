@@ -408,13 +408,20 @@ def _daemon_endpoint_names():
     return names
 
 
-def _daemon_browser_connection(name):
+def _daemon_browser_connection(name, *, target_neutral=False):
     c = None
     try:
         c, token = ipc.connect(name, timeout=1.0)
-        response = ipc.request(c, token, {"meta": "connection_status"})
-        if "error" in response:
+        request = ({"method": "Browser.getVersion", "params": {}}
+                   if target_neutral else {"meta": "connection_status"})
+        response = ipc.request(c, token, request)
+        if not isinstance(response, dict) or "error" in response:
             return None
+        if target_neutral:
+            # A liveness response must be CDP-shaped; never consume page data.
+            if not isinstance(response.get("result"), dict):
+                return None
+            return {"name": name, "page": None}
         page = response.get("page")
         if page:
             page = {"title": page.get("title") or "(untitled)", "url": page.get("url") or ""}
@@ -723,7 +730,7 @@ def require_existing_daemon(name=None):
         raise RuntimeError("BH_PREFLIGHT_TARGET_ID must name a non-empty target")
     if not daemon_alive(daemon_name):
         raise RuntimeError(f"required daemon {daemon_name!r} is not running")
-    method = "Target.getTargetInfo" if target_id is not None else "Target.getTargets"
+    method = "Target.getTargetInfo" if target_id is not None else "Browser.getVersion"
     params = {"targetId": target_id} if target_id is not None else {}
     try:
         s, token = ipc.connect(daemon_name, timeout=3.0)
@@ -1479,7 +1486,8 @@ def run_doctor_json(require_existing_daemon=False):
     """
     strict = bool(require_existing_daemon)
     chrome = None if strict else _chrome_running()
-    browser_ready = daemon_browser_ready(NAME)
+    browser_ready = (_daemon_browser_connection(NAME, target_neutral=True) is not None
+                     if strict else daemon_browser_ready(NAME))
     daemon = browser_ready or daemon_alive(NAME)
     healthy = (daemon and browser_ready) if strict else (browser_ready or (chrome and daemon))
     report = {

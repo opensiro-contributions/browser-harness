@@ -175,13 +175,13 @@ def test_require_existing_daemon_fails_without_spawning(monkeypatch):
 
 
 def test_require_existing_daemon_probes_cdp(monkeypatch):
-    sock = FakeSocket(response=b'{"result":{"targetInfos":[]}}\n')
+    sock = FakeSocket(response=b'{"result":{"product":"Chrome/157"}}\n')
     monkeypatch.setattr(admin, "daemon_alive", lambda _name: True)
     monkeypatch.setattr(admin.ipc, "connect", lambda _name, timeout: (sock, None))
 
     admin.require_existing_daemon("scoped")
 
-    assert b'"method": "Target.getTargets"' in sock.sent
+    assert b'"method": "Browser.getVersion"' in sock.sent
     assert sock.closed is True
 
 
@@ -225,6 +225,45 @@ def test_require_existing_daemon_refuses_blank_target_without_ipc(monkeypatch):
     with pytest.raises(RuntimeError, match="non-empty target"):
         admin.require_existing_daemon("scoped")
 
+
+
+def test_scoped_existing_daemon_health_uses_no_target_enumeration(monkeypatch):
+    sock = FakeSocket(response=b'{"result":{"product":"Chrome/157"}}\n')
+    monkeypatch.setattr(admin, "daemon_alive", lambda _name: True)
+    monkeypatch.setattr(admin.ipc, "connect", lambda _name, timeout: (sock, None))
+    admin.require_existing_daemon("scoped")
+    assert b'"method": "Browser.getVersion"' in sock.sent
+    assert b'Target.getTargets' not in sock.sent
+    assert sock.closed is True
+
+
+def test_target_neutral_connection_status_does_not_request_page(monkeypatch):
+    sock = FakeSocket(response=b'{"result":{"product":"Chrome/157"}}\n')
+    monkeypatch.setattr(admin.ipc, "connect", lambda name, timeout=1.0: (sock, None))
+    result = admin._daemon_browser_connection("scoped", target_neutral=True)
+    assert result == {"name": "scoped", "page": None}
+    assert b'"method": "Browser.getVersion"' in sock.sent
+
+
+def test_target_neutral_connection_fails_closed_on_old_daemon_reply(monkeypatch):
+    sock = FakeSocket(response=b'{"target_id":"someone-elses-tab","page":{"url":"https://example.test/private"}}\n')
+    monkeypatch.setattr(admin.ipc, "connect", lambda name, timeout=1.0: (sock, None))
+    assert admin._daemon_browser_connection("scoped", target_neutral=True) is None
+
+
+def test_strict_doctor_uses_target_neutral_health(monkeypatch, capsys):
+    calls = []
+    monkeypatch.setattr(admin, "NAME", "scoped")
+    monkeypatch.setattr(admin, "_version", lambda: "0.1.13")
+    monkeypatch.setattr(admin, "_install_mode", lambda: "editable")
+    monkeypatch.setattr(admin, "daemon_alive", lambda _name: True)
+    def connection(name, target_neutral=False):
+        calls.append((name, target_neutral))
+        return {"name": name, "page": None}
+    monkeypatch.setattr(admin, "_daemon_browser_connection", connection)
+    assert admin.run_doctor_json(require_existing_daemon=True) == 0
+    assert json.loads(capsys.readouterr().out)["healthy"] is True
+    assert calls == [("scoped", True)]
 
 def test_strict_remote_stop_propagates_daemon_error(monkeypatch):
     sock = FakeSocket(response=b'{"error":"billing stop failed"}\n')
