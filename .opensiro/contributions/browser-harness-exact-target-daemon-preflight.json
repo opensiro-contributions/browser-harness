@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "id": "browser-harness-exact-target-daemon-preflight",
+  "original_repository": "browser-use/browser-harness",
+  "working_fork": "opensiro-contributions/browser-harness",
+  "title": "Opt-in exact-target existing-daemon health preflight",
+  "contribution_type": "ASSESSMENT_INFORMED",
+  "classification_rationale": "The pinned 2026-09-18 Browser Harness Index assessment establishes shared-daemon S2 coordination as a compositional rather than autonomously owned function. It informed selection of a bounded exact-target preflight for the later source-native issue #901; the Index assessment did not independently predict this specific code change, so no VSM-derived causal claim is made.",
+  "classification_evidence": [
+    "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/assessments/br/browser-harness.md",
+    "https://github.com/browser-use/browser-harness/issues/901",
+    "https://github.com/opensiro-contributions/browser-harness/commit/9c48bafc58c448941bb9bf8da3e8527509e8c115"
+  ],
+  "assessment_pin": {
+    "url": "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/assessments/br/browser-harness.md",
+    "reviewed_at": "2026-09-18",
+    "assessed_source_revision": "afbcc381b963040c19627d788e40c7e7663171ee"
+  },
+  "work_state": "BUILD",
+  "next_action": "Seek exact current-conversation authorization for a public fork-local review PR of the existing tested product branch; do not submit or edit any external PR without separate approval.",
+  "source_revision": "8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
+  "native_evidence": [
+    "https://github.com/opensiro-contributions/browser-harness/commit/9c48bafc58c448941bb9bf8da3e8527509e8c115",
+    "https://github.com/opensiro-contributions/browser-harness/blob/9c48bafc58c448941bb9bf8da3e8527509e8c115/tests/unit/test_admin.py",
+    "https://github.com/opensiro-contributions/browser-harness/blob/9c48bafc58c448941bb9bf8da3e8527509e8c115/tests/unit/test_run.py"
+  ],
+  "work_branches": [
+    "https://github.com/opensiro-contributions/browser-harness/tree/opensiro/upgrade-vsm-informed-target-preflight-20261116"
+  ],
+  "external_prs": [],
+  "last_event_id": "2026-11-16T144647Z--browser-harness-exact-target-preflight-validated"
+}
