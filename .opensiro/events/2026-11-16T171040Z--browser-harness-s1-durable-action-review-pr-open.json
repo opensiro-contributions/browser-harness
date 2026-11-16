@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "2026-11-16T171040Z--browser-harness-s1-durable-action-review-pr-open",
+  "recorded_at": "2026-11-16T17:10:40Z",
+  "actor": "OpenSiro ChatGPT agent (owner-approved fork-local PR)",
+  "kind": "FORK_LOCAL_REVIEW_PR_CREATED",
+  "contribution_id": "browser-harness-s1-durable-action-intent",
+  "decision": "READY_FOR_HUMAN_PR_APPROVAL_NOT_EXTERNAL_PUBLICATION",
+  "evidence_urls": [
+    "https://github.com/opensiro-contributions/browser-harness/pull/2",
+    "https://github.com/opensiro-contributions/browser-harness/commit/0be45c484fe3a7a721bad48f37dc288ca9ee0fbc"
+  ],
+  "summary": "Owner explicitly approved public fork-local PR with exact head/base/title/body hash. Created PR #2; first-party readback verifies OPEN, non-draft, unmerged, one commit, five files. External original PR NOT created and local PR NOT merged.",
+  "next_action": "Fork-local review PR #2 created, open and non-draft. Owner reviews exact diff; any later original browser-use/browser-harness PR requires separate exact owner approval. Do not merge local review PR automatically."
+}

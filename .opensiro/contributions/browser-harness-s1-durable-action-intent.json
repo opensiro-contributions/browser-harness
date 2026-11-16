@@ -18,19 +18,27 @@
     "reviewed_at": "2026-09-18",
     "assessed_source_revision": "afbcc381b963040c19627d788e40c7e7663171ee"
   },
-  "work_state": "BUILD",
-  "next_action": "Native S1 product work tested and branch published; exact fork-local review PR title/body/diff and five-link preview must be shown to owner for explicit current-conversation approval before creating a PUBLIC fork-local PR. External original PR separately requires fresh exact-action approval.",
+  "work_state": "READY",
+  "next_action": "Fork-local review PR #2 created, open and non-draft. Owner reviews exact diff; any later original browser-use/browser-harness PR requires separate exact owner approval. Do not merge local review PR automatically.",
   "source_revision": "8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
   "native_evidence": [
     "https://github.com/opensiro-contributions/browser-harness/commit/0be45c484fe3a7a721bad48f37dc288ca9ee0fbc",
     "https://github.com/opensiro-contributions/browser-harness/blob/0be45c484fe3a7a721bad48f37dc288ca9ee0fbc/tests/unit/test_action_guard.py",
-    "https://github.com/opensiro-contributions/browser-harness/blob/opensiro/meta/.opensiro/research/browser-harness-s1-durable-action-intent/README.md"
+    "https://github.com/opensiro-contributions/browser-harness/blob/opensiro/meta/.opensiro/research/browser-harness-s1-durable-action-intent/README.md",
+    "https://github.com/opensiro-contributions/browser-harness/pull/2"
   ],
   "work_branches": [
     "opensiro/upgrade-s1-durable-action-intent-20261116",
     "https://github.com/opensiro-contributions/browser-harness/tree/opensiro/upgrade-s1-durable-action-intent-20261116"
   ],
   "external_prs": [],
-  "last_event_id": "2026-11-16T165814Z--browser-harness-s1-handoff-branch-normalized",
-  "technical_scope": "At-most-one guarded Python action callback per persistent key/workspace; async outcome reconciled by exact caller-supplied verifier; unknown effects fail closed. Not remote exactly-once, tab ownership, S2 authority, or an autonomy grade."
+  "last_event_id": "2026-11-16T171040Z--browser-harness-s1-durable-action-review-pr-open",
+  "technical_scope": "At-most-one guarded Python action callback per persistent key/workspace; async outcome reconciled by exact caller-supplied verifier; unknown effects fail closed. Not remote exactly-once, tab ownership, S2 authority, or an autonomy grade.",
+  "fork_local_review_pr": "https://github.com/opensiro-contributions/browser-harness/pull/2",
+  "validation_summary": {
+    "baseline": "266 passed, 1 skipped (native unit suite)",
+    "candidate": "272 passed, 1 skipped (native unit suite)",
+    "chrome": "Chrome 157 local application delayed-commit: original two records; guarded crash/resume one; pre-action crash zero; normal one",
+    "not_validated": "No production-site, cloud-browser, cross-platform headed Chrome, or independent model-driven agent trial; no exactly-once remote guarantee"
+  }
 }
