@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "2026-11-16T165814Z--browser-harness-s1-handoff-branch-normalized",
+  "recorded_at": "2026-11-16T16:58:14Z",
+  "actor": "OpenSiro ChatGPT agent (owner-directed metadata validation)",
+  "kind": "METADATA_CORRECTION",
+  "contribution_id": "browser-harness-s1-durable-action-intent",
+  "decision": "EXACT_HANDOFF_BRANCH_RECORD_CORRECTED",
+  "evidence_urls": [
+    "https://github.com/opensiro-contributions/browser-harness/commit/0be45c484fe3a7a721bad48f37dc288ca9ee0fbc",
+    "https://github.com/opensiro/upstream/blob/main/scripts/upgrade_handoff.py"
+  ],
+  "summary": "Added the verified literal product branch slug alongside its existing GitHub link in work_branches, satisfying the canonical current Upstream handoff helper. No code/test/owner-publication decision changed; fork-local review PR remains not created and requires exact current consent.",
+  "next_action": "Native S1 product work tested and branch published; exact fork-local review PR title/body/diff and five-link preview must be shown to owner for explicit current-conversation approval before creating a PUBLIC fork-local PR. External original PR separately requires fresh exact-action approval."
+}

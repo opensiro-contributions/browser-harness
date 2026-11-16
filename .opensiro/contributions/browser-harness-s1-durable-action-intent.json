@@ -27,9 +27,10 @@
     "https://github.com/opensiro-contributions/browser-harness/blob/opensiro/meta/.opensiro/research/browser-harness-s1-durable-action-intent/README.md"
   ],
   "work_branches": [
+    "opensiro/upgrade-s1-durable-action-intent-20261116",
     "https://github.com/opensiro-contributions/browser-harness/tree/opensiro/upgrade-s1-durable-action-intent-20261116"
   ],
   "external_prs": [],
-  "last_event_id": "2026-11-16T165118Z--browser-harness-s1-durable-action-ready",
+  "last_event_id": "2026-11-16T165814Z--browser-harness-s1-handoff-branch-normalized",
   "technical_scope": "At-most-one guarded Python action callback per persistent key/workspace; async outcome reconciled by exact caller-supplied verifier; unknown effects fail closed. Not remote exactly-once, tab ownership, S2 authority, or an autonomy grade."
 }
