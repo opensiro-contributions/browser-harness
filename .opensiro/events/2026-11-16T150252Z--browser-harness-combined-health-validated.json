@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "2026-11-16T150252Z--browser-harness-combined-health-validated",
+  "recorded_at": "2026-11-16T15:02:52Z",
+  "actor": "OpenAI GPT-6 via OpenSiro Upstream",
+  "kind": "IMPLEMENTATION_VALIDATED",
+  "contribution_id": "browser-harness-exact-target-daemon-preflight",
+  "evidence_urls": [
+    "https://github.com/opensiro-contributions/browser-harness/commit/cb0731769ee1d6cb26ec5845f4f3e045012eb5f4",
+    "https://github.com/browser-use/browser-harness/issues/901",
+    "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/assessments/br/browser-harness.md"
+  ],
+  "summary": "Combined exact-target preflight with target-neutral browser health; current pinned native unit suite 278 passed, 1 skipped, git diff --check and compileall passed. Real Chrome integration not tested. No caller ownership/authorization guarantee and no public review PR.",
+  "next_action": "Request case-specific approval for the public fork-local review PR of the combined tested branch; no external PR is authorized."
+}
