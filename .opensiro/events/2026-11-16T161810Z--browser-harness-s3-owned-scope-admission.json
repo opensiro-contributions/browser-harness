@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "2026-11-16T161810Z--browser-harness-s3-owned-scope-admission",
+  "recorded_at": "2026-11-16T16:18:10Z",
+  "actor": "AI-assisted OpenSiro Upstream operator",
+  "kind": "CHECKPOINT",
+  "contribution_id": "browser-harness-s3-owned-scope-priority-admission",
+  "decision": "DEPENDENT_EXPERIMENT_NOT_PUBLICATION_READY",
+  "evidence_urls": [
+    "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/assessments/br/browser-harness.md",
+    "https://github.com/browser-use/browser-harness/pull/911",
+    "https://github.com/opensiro-contributions/browser-harness/commit/6160b0eebde89aaab40c1cbb284e32b89c91907c"
+  ],
+  "native_validation": {
+    "environment": "dev-alpha-2 local Python pytest with fake CDP; no live Chrome",
+    "command": "PYTHONPATH=src python -m pytest tests/unit -q",
+    "result": "344 passed, 1 skipped",
+    "diff_check": "PASS"
+  },
+  "next_action": "Dependent experiment only: PR #911 remains unmerged. Compare user-task outcome against supported main and competing heads, independently run a live Chrome E2E plus compatibility/race checks, investigate same-harness S4 alternatives, verify parent branch and provenance; do not create a public fork-local review PR or external submission without exact current-conversation approval. Local native unit suite reported 344 passed / 1 skipped on experimental commit; no live Chrome proof."
+}

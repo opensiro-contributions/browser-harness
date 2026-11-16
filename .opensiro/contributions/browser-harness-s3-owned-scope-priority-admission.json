@@ -1,0 +1,34 @@
+{
+  "schema_version": 2,
+  "id": "browser-harness-s3-owned-scope-priority-admission",
+  "original_repository": "browser-use/browser-harness",
+  "working_fork": "opensiro-contributions/browser-harness",
+  "title": "S3-informed bounded priority admission for invocation-owned browser targets",
+  "contribution_type": "ASSESSMENT_INFORMED",
+  "classification_rationale": "The pinned 2026-09-18 Index assessment distinguishes S2 coordination from absent S3 whole-system operational control; the S3 Profile decision-right invariant informed a bounded resource-admission mechanism on top of unmerged owned-target PR #911. This is not an Index-first prediction, a claim of autonomous S3 ownership, or a current grade change. Original issues #375 and #637 evidence independent concurrency and resource-pressure needs.",
+  "classification_evidence": [
+    "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/assessments/br/browser-harness.md",
+    "https://github.com/browser-use/browser-harness/issues/375",
+    "https://github.com/browser-use/browser-harness/issues/637",
+    "https://github.com/browser-use/browser-harness/pull/911",
+    "https://github.com/opensiro-contributions/browser-harness/commit/6160b0eebde89aaab40c1cbb284e32b89c91907c"
+  ],
+  "assessment_pin": {
+    "url": "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/assessments/br/browser-harness.md",
+    "reviewed_at": "2026-09-18",
+    "assessed_source_revision": "afbcc381b963040c19627d788e40c7e7663171ee"
+  },
+  "work_state": "BUILD",
+  "next_action": "Dependent experiment only: PR #911 remains unmerged. Compare user-task outcome against supported main and competing heads, independently run a live Chrome E2E plus compatibility/race checks, investigate same-harness S4 alternatives, verify parent branch and provenance; do not create a public fork-local review PR or external submission without exact current-conversation approval. Local native unit suite reported 344 passed / 1 skipped on experimental commit; no live Chrome proof.",
+  "source_revision": "8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
+  "native_evidence": [
+    "https://github.com/opensiro-contributions/browser-harness/commit/6160b0eebde89aaab40c1cbb284e32b89c91907c",
+    "https://github.com/opensiro-contributions/browser-harness/blob/6160b0eebde89aaab40c1cbb284e32b89c91907c/tests/unit/test_owned_scope.py",
+    "https://github.com/opensiro-contributions/browser-harness/blob/6160b0eebde89aaab40c1cbb284e32b89c91907c/tests/unit/test_run.py"
+  ],
+  "work_branches": [
+    "https://github.com/opensiro-contributions/browser-harness/tree/opensiro/exp-s3-scope-admission-pr911-20261116"
+  ],
+  "external_prs": [],
+  "last_event_id": "2026-11-16T161810Z--browser-harness-s3-owned-scope-admission"
+}
