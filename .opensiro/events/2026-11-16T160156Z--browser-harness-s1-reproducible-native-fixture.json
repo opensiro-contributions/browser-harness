@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "id": "2026-11-16T160156Z--browser-harness-s1-reproducible-native-fixture",
+  "recorded_at": "2026-11-16T16:01:56Z",
+  "actor": "OpenSiro ChatGPT agent (owner-directed; supplemental controlled smoke)",
+  "kind": "RESEARCH_EVIDENCE",
+  "contribution_id": "browser-harness-s1-learned-regulator-reuse",
+  "decision": "SUPPLEMENTAL_REPRODUCIBLE_EVIDENCE_ONLY",
+  "evidence_urls": [
+    "https://github.com/opensiro-contributions/browser-harness/blob/opensiro/meta/.opensiro/research/browser-harness-s1-learned-regulator-reuse/README.md",
+    "https://github.com/opensiro-contributions/browser-harness/blob/opensiro/meta/.opensiro/research/browser-harness-s1-learned-regulator-reuse/fixture.py",
+    "https://github.com/opensiro-contributions/browser-harness/blob/opensiro/meta/.opensiro/research/browser-harness-s1-learned-regulator-reuse/preregistered.json",
+    "https://github.com/browser-use/browser-harness/commit/8ec26f6974015a78eaf5494fe35bb9ba1f6b3598"
+  ],
+  "summary": "Added independently frozen, reproducible localhost fixture and pre-registered tasks plus clean source-native Chrome 157/manual-skill controls; 266 native unit tests passed and 1 skipped. Separate real agent trial was blocked by authorized Codex authentication 403 before task actions. The earlier 2026-11-16T155534Z result remains intact; this is supplemental evidence, not an additional qualified contribution or proof of S1 learning.",
+  "next_action": "EVIDENCE_INSUFFICIENT / BLOCKED_WITH_HANDOFF: native Browser Harness and a disposable real-Chromium UI/URL mechanism were verified, but no autonomous agent discovery, model-driven cold/learned/ablated trials or end-to-end material feature delta was established. A lawful, authenticated, independently executable agent runtime is required to perform the preregistered P1-P5 task trials. Do not publish fork-local or original PR, do not substitute hand-scripted controls, do not reclassify ASSESSMENT_DERIVED."
+}

@@ -21,10 +21,18 @@
   "work_state": "BLOCKED",
   "next_action": "EVIDENCE_INSUFFICIENT / BLOCKED_WITH_HANDOFF: native Browser Harness and a disposable real-Chromium UI/URL mechanism were verified, but no autonomous agent discovery, model-driven cold/learned/ablated trials or end-to-end material feature delta was established. A lawful, authenticated, independently executable agent runtime is required to perform the preregistered P1-P5 task trials. Do not publish fork-local or original PR, do not substitute hand-scripted controls, do not reclassify ASSESSMENT_DERIVED.",
   "source_revision": "8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
-  "native_evidence": [],
+  "native_evidence": [
+    "https://github.com/opensiro-contributions/browser-harness/blob/opensiro/meta/.opensiro/research/browser-harness-s1-learned-regulator-reuse/README.md",
+    "https://github.com/opensiro-contributions/browser-harness/blob/opensiro/meta/.opensiro/research/browser-harness-s1-learned-regulator-reuse/fixture.py",
+    "https://github.com/opensiro-contributions/browser-harness/blob/opensiro/meta/.opensiro/research/browser-harness-s1-learned-regulator-reuse/preregistered.json",
+    "https://github.com/opensiro-contributions/browser-harness/blob/opensiro/meta/.opensiro/research/browser-harness-s1-learned-regulator-reuse/native-unit-tests.log",
+    "https://github.com/opensiro-contributions/browser-harness/blob/opensiro/meta/.opensiro/research/browser-harness-s1-learned-regulator-reuse/pristine-cold-smoke.log",
+    "https://github.com/opensiro-contributions/browser-harness/blob/opensiro/meta/.opensiro/research/browser-harness-s1-learned-regulator-reuse/pristine-manual-control.log",
+    "https://github.com/opensiro-contributions/browser-harness/blob/opensiro/meta/.opensiro/research/browser-harness-s1-learned-regulator-reuse/agent-runtime-blocker.txt"
+  ],
   "work_branches": [],
   "external_prs": [],
-  "last_event_id": "2026-11-16T155534Z--browser-harness-s1-mechanism-only-agent-blocked",
+  "last_event_id": "2026-11-16T160156Z--browser-harness-s1-reproducible-native-fixture",
   "research_contract": {
     "research_status": "PARTIAL_NATIVE_MECHANISM_VERIFIED_AGENT_TRIALS_BLOCKED",
     "objective": "Evaluate whether Browser Harness S1 itself learns a materially different browser-task regulator from a real failed task, legitimately saves it in an agent-editable extension surface, and uses it in an independent later invocation to close the same disturbance class.",
@@ -91,6 +99,18 @@
         "domain_skills_flag_disabled": null
       },
       "limits": "Explicit hand-scripted tester actions and manually seeded marker, not agent learning, real-user benefit, five independent replicates or runtime ownership isolation."
+    },
+    "supplemental_native_fixture": {
+      "recorded_at": "2026-11-16T16:01:56Z",
+      "pre_registered_fixture_sha256": "4634214ee203ecdf031de9caa465b464a79b973be9f1db15fe735300c11c86c0",
+      "preregistration_sha256": "42f333fdd131cbd6c9168751e8b0326e8a8e0aa70bcf30ff43e07acbb127ddae",
+      "clean_source_revision": "8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
+      "source_native_unit_tests": "266 passed, 1 skipped (tests/unit in a separate clean worktree)",
+      "browser": "HeadlessChrome/157.0.8103.78 (independent from prior recorded Chromium 151 smoke)",
+      "outcome": "Manual calendar failure, evaluator-authored placeholder skill surfaced only under matching hostname, server verified manually constructed direct URL search. No model learning or material new user capability.",
+      "independent_agent_trials_completed": 0,
+      "agent_blocker": "codex-cli 0.145.0 authentication HTTP 403 unsupported_country_region_territory; stopped without bypass",
+      "relationship": "Supplemental reproducible evidence only. Preserve prior native mechanism receipt and blocked disposition."
     }
   }
 }

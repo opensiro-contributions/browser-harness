@@ -1,0 +1,1 @@
+2026-11-16 source-pinned cold-a: codex-cli 0.145.0, independent agent initialization blocked by HTTP 403 unsupported_country_region_territory on authentication refresh before browser-task actions. No model outcome, no held-out trials. Stopped without bypass.
