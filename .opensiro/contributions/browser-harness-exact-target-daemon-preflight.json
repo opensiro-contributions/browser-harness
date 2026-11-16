@@ -17,8 +17,8 @@
     "reviewed_at": "2026-09-18",
     "assessed_source_revision": "afbcc381b963040c19627d788e40c7e7663171ee"
   },
-  "work_state": "BUILD",
-  "next_action": "Request case-specific approval for the public fork-local review PR of the combined tested branch; no external PR is authorized.",
+  "work_state": "RESEARCH",
+  "next_action": "Current exact-target / target-neutral preflight is a tested but unqualified prototype, not a demonstrated material Upgrade; do not seek fork-local or external PR publication on unit tests alone. Continue read-only evaluation of a distinct S1 learned-regulator capability in this original harness; demand end-to-end before/after, independent source-of-learning provenance and evidence that a user task becomes possible, otherwise close without patch.",
   "source_revision": "8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
   "native_evidence": [
     "https://github.com/opensiro-contributions/browser-harness/commit/9c48bafc58c448941bb9bf8da3e8527509e8c115",
@@ -33,5 +33,5 @@
     "https://github.com/opensiro-contributions/browser-harness/tree/opensiro/upgrade-vsm-informed-combined-health-20261116"
   ],
   "external_prs": [],
-  "last_event_id": "2026-11-16T150252Z--browser-harness-combined-health-validated"
+  "last_event_id": "2026-11-16T152213Z--browser-harness-materiality-review"
 }
