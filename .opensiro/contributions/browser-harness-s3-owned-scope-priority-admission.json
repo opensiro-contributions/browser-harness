@@ -27,8 +27,9 @@
     "https://github.com/opensiro-contributions/browser-harness/blob/6160b0eebde89aaab40c1cbb284e32b89c91907c/tests/unit/test_run.py"
   ],
   "work_branches": [
-    "https://github.com/opensiro-contributions/browser-harness/tree/opensiro/exp-s3-scope-admission-pr911-20261116"
+    "opensiro/exp-s3-scope-admission-pr911-20261116"
   ],
   "external_prs": [],
-  "last_event_id": "2026-11-16T161810Z--browser-harness-s3-owned-scope-admission"
+  "last_event_id": "2026-11-16T161810Z--browser-harness-s3-owned-scope-admission",
+  "work_branch_url": "https://github.com/opensiro-contributions/browser-harness/tree/opensiro/exp-s3-scope-admission-pr911-20261116"
 }
