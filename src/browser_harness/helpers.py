@@ -9,6 +9,7 @@ from urllib.parse import urlparse
 
 from . import _ipc as ipc
 from . import paths
+from .action_guard import guarded_action, ActionOutcomeUnknown, ActionIdentityMismatch
 
 
 CORE_DIR = Path(__file__).resolve().parent
