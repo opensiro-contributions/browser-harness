@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "id": "2026-11-16T173621Z--browser-harness-s3-current-main-integration",
+  "recorded_at": "2026-11-16T17:36:21Z",
+  "actor": "AI-assisted OpenSiro Upstream operator",
+  "kind": "CHECKPOINT",
+  "contribution_id": "browser-harness-s3-owned-scope-priority-admission",
+  "decision": "ORIGINAL_MAIN_INTEGRATION_TESTED; DEPENDENT_EXPERIMENT_NO_PUBLICATION",
+  "evidence_urls": [
+    "https://github.com/opensiro-contributions/browser-harness/commit/ef5c5bcd92196d33a5b5463a64cfc20f0363895e",
+    "https://github.com/browser-use/browser-harness/pull/911"
+  ],
+  "native_validation": {
+    "branch": "opensiro/exp-s3-admission-main-integrated-20261116",
+    "head": "ef5c5bcd92196d33a5b5463a64cfc20f0363895e",
+    "main": "8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
+    "merge": "clean; current main included as second parent",
+    "unit": "344 passed, 1 skipped",
+    "ipc": "real server/CLI socket canary PASS, fake CDP",
+    "whitespace": "PASS relative original main",
+    "chrome": "NOT_RUN missing OS libraries"
+  },
+  "next_action": "S3-informed experiment integrated with current original main 8ec26f6974015a78eaf5494fe35bb9ba1f6b3598 as merge commit ef5c5bcd92196d33a5b5463a64cfc20f0363895e; exact remote merged tree passed 344 unit tests (1 skipped) and real-socket/real-CLI fake-CDP canary. Diff to fork main is 12 files and contains full *unmerged* browser-use/browser-harness PR #911 dependency plus OpenSiro admission, so not an independent small upstream PR. Real Chrome E2E and user-level material advantage beyond host-side queue remain unproven. Do not create fork-local/external PR without exact current-conversation consent, source-native need/benefit evidence, and template/AI-disclosure compliance; S4 remains DELTA_PENDING."
+}
