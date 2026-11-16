@@ -20,7 +20,7 @@
     "assessed_source_revision": "afbcc381b963040c19627d788e40c7e7663171ee"
   },
   "work_state": "READY",
-  "next_action": "Code and native functional proof are ready in the pinned fork branch; show the exact fork-local PR title/body, verified 5-file diff and all evidence URLs to the owner, and obtain separate exact current-conversation consent BEFORE creating the PUBLIC fork-local review PR. External PR not created or authorized. No LLM outcome or autonomous skill-learning improvement claimed.",
+  "next_action": "Fork-local review PR https://github.com/opensiro-contributions/browser-harness/pull/1 is OPEN and awaiting owner technical review. Do not merge the fork-local PR into fork main. The third-party original browser-use/browser-harness PR has NOT been published; it requires separately approved exact external title/body/diff, actual review PR link, and updated preflight.",
   "source_revision": "8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
   "native_evidence": [
     "https://github.com/opensiro-contributions/browser-harness/commit/13c404281b89003c3675d64a903cdc98b2139a96",
@@ -34,7 +34,7 @@
     "https://github.com/opensiro-contributions/browser-harness/tree/opensiro/upgrade-s1-domain-skill-export-20261116"
   ],
   "external_prs": [],
-  "last_event_id": "2026-11-16T162758Z--browser-harness-s1-export-active-handoff",
+  "last_event_id": "2026-11-16T170956Z--browser-harness-s1-fork-review-pr1-created",
   "functional_evidence": {
     "actor": "User or coding agent integrating Browser Harness domain workflows with a lazy-loaded SKILL.md-indexing agent such as Hermes.",
     "task": "Convert existing site-specific Markdown into separately name-addressable SKILL.md entries without loading the primary Browser Harness skill or starting a daemon.",

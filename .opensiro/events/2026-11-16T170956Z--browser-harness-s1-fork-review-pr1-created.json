@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "id": "2026-11-16T170956Z--browser-harness-s1-fork-review-pr1-created",
+  "recorded_at": "2026-11-16T17:09:56Z",
+  "actor": "OpenSiro ChatGPT agent (owner-directed)",
+  "kind": "FORK_LOCAL_REVIEW_PR_CREATED",
+  "contribution_id": "browser-harness-s1-domain-skill-index-export",
+  "decision": "PUBLIC_FORK_LOCAL_REVIEW_PR_OPEN_NOT_EXTERNAL_PUBLICATION",
+  "evidence_urls": [
+    "https://github.com/opensiro-contributions/browser-harness/pull/1",
+    "https://github.com/opensiro-contributions/browser-harness/commit/13c404281b89003c3675d64a903cdc98b2139a96",
+    "https://github.com/opensiro-contributions/browser-harness/blob/b21719e8796b775dda37720ea90dc775c164e0dc/.opensiro/contributions/browser-harness-s1-domain-skill-index-export.json"
+  ],
+  "summary": "After explicit user approval of the exact displayed title/body/diff, created public fork-local review PR #1, non-draft, from opensiro/upgrade-s1-domain-skill-export-20261116 at 13c404281b89003c3675d64a903cdc98b2139a96 to fork main at 8ec26f6974015a78eaf5494fe35bb9ba1f6b3598. It is a proposal, not merged into fork main; no third-party original PR was created. Source-native tests: 274 passed, 1 skipped, plus deterministic 0 to 174 SKILL.md discoverability. No model outcome proof.",
+  "next_action": "Fork-local review PR https://github.com/opensiro-contributions/browser-harness/pull/1 is OPEN and awaiting owner technical review. Do not merge the fork-local PR into fork main. The third-party original browser-use/browser-harness PR has NOT been published; it requires separately approved exact external title/body/diff, actual review PR link, and updated preflight."
+}
