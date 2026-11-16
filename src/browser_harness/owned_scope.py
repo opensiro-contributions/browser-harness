@@ -5,6 +5,7 @@ from the Daemon. It therefore cannot read or write Daemon.session, target_id,
 events, dialog, or dedicated_target_id, and cannot reach attach_first_page.
 """
 import asyncio, re, secrets
+import time
 from collections import deque
 from dataclasses import dataclass, field
 from enum import Enum
@@ -12,6 +13,9 @@ from typing import Awaitable, Callable, NewType, Union
 
 PROTOCOL = 1
 MAX_OPEN_SCOPES = 8
+MAX_WAITERS = 32
+MAX_WAIT_SECONDS = 30.0
+MAX_PRIORITY = 9
 SCOPE_EVENT_BUF = 500
 ENABLE_TIMEOUT_S = 4.0
 # Provisioning plus dispose stays under the client's 10s IPC socket timeout,
@@ -41,6 +45,9 @@ class Refusal(str, Enum):
     SCOPE_CLOSED = "scope-closed"
     STALE_SESSION = "stale-session"
     CAPACITY = "capacity"
+    WAIT_TIMEOUT = "wait-timeout"
+    WAIT_QUEUE_FULL = "wait-queue-full"
+    BAD_ADMISSION = "bad-admission"
 
     def reply(self) -> dict:
         return {"error": f"owned-scope: {self.value}"}
@@ -134,11 +141,40 @@ class ScopeTable:
         self._open: dict[ScopeId, OwnedScope] = {}
         self._closed: deque[ScopeId] = deque(maxlen=64)
         self._lock = asyncio.Lock()
+        self._capacity_changed = asyncio.Condition(self._lock)
+        self._waiters = []  # (negative priority, arrival sequence, unique object)
+        self._sequence = 0
 
-    async def begin(self) -> dict:
-        async with self._lock:
-            if len(self._open) >= MAX_OPEN_SCOPES:
-                return Refusal.CAPACITY.reply()
+    async def begin(self, *, wait_seconds=0, priority=0) -> dict:
+        # This opt-in admission policy is operator-supplied; it grants no
+        # authority to discover foreign targets or preempt a running scope.
+        if isinstance(wait_seconds, bool) or not isinstance(wait_seconds, (int, float)) \
+                or not 0 <= wait_seconds <= MAX_WAIT_SECONDS:
+            return Refusal.BAD_ADMISSION.reply()
+        if isinstance(priority, bool) or not isinstance(priority, int) or not 0 <= priority <= MAX_PRIORITY:
+            return Refusal.BAD_ADMISSION.reply()
+        async with self._capacity_changed:
+            if len(self._open) >= MAX_OPEN_SCOPES or self._waiters:
+                if not wait_seconds:
+                    return Refusal.CAPACITY.reply()
+                if len(self._waiters) >= MAX_WAITERS:
+                    return Refusal.WAIT_QUEUE_FULL.reply()
+                self._sequence += 1
+                entry = (-priority, self._sequence, object())
+                self._waiters.append(entry)
+                deadline = time.monotonic() + wait_seconds
+                try:
+                    while len(self._open) >= MAX_OPEN_SCOPES or entry != min(self._waiters):
+                        remaining = deadline - time.monotonic()
+                        if remaining <= 0:
+                            return Refusal.WAIT_TIMEOUT.reply()
+                        try:
+                            await asyncio.wait_for(self._capacity_changed.wait(), remaining)
+                        except TimeoutError:
+                            return Refusal.WAIT_TIMEOUT.reply()
+                finally:
+                    self._waiters.remove(entry)
+                    self._capacity_changed.notify_all()
             context_id = None
             scope_id = None
             try:
@@ -181,11 +217,13 @@ class ScopeTable:
                         )
                     except Exception:
                         pass
+                self._capacity_changed.notify_all()
                 if not isinstance(e, Exception):
                     raise
                 if isinstance(e, TimeoutError):
                     return {"error": "owned target provisioning timed out"}
                 return {"error": str(e) or type(e).__name__}
+            self._capacity_changed.notify_all()
             return {"owned_target": {"protocol": PROTOCOL, "scope_id": scope_id, "target_id": target_id}}
 
     async def handle(self, req: dict) -> dict:
@@ -269,6 +307,7 @@ class ScopeTable:
                 return {"error": f"dispose failed: {e}"}
             del self._open[scope_id]
             self._closed.append(scope_id)
+            self._capacity_changed.notify_all()
             return {"ok": True, "closed": "disposed"}
 
     def absorb_event(self, method: str, params: dict, session_id: str | None) -> bool:

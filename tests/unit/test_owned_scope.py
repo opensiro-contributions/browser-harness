@@ -221,6 +221,95 @@ def test_begin_refuses_past_capacity_without_cdp():
     assert browser.sent == []
 
 
+def test_priority_wait_admits_high_priority_first_with_bounded_capacity():
+    browser = RecordingBrowser()
+    table = ScopeTable(browser.send_raw, PING)
+
+    async def scenario():
+        opened = [(await table.begin())["owned_target"]["scope_id"] for _ in range(MAX_OPEN_SCOPES)]
+        low = asyncio.create_task(table.begin(wait_seconds=1, priority=1))
+        await asyncio.sleep(0)
+        high = asyncio.create_task(table.begin(wait_seconds=1, priority=8))
+        await asyncio.sleep(0)
+        assert len(table._waiters) == 2
+        assert await table.end(opened.pop()) == {"ok": True, "closed": "disposed"}
+        high_result = await asyncio.wait_for(high, 0.5)
+        assert "owned_target" in high_result
+        assert not low.done(), "lower-priority waiter must not overtake higher-priority one"
+        assert await table.end(opened.pop()) == {"ok": True, "closed": "disposed"}
+        low_result = await asyncio.wait_for(low, 0.5)
+        assert "owned_target" in low_result
+        assert not table._waiters
+        assert len(table._open) == MAX_OPEN_SCOPES
+        # Original eight were scoped; replacements never enumerated foreign tabs.
+        assert not any(m == "Target.getTargets" for m, _, _ in browser.sent)
+
+    asyncio.run(scenario())
+
+
+def test_waiting_agent_completes_its_task_after_capacity_release():
+    class TaskBrowser(RecordingBrowser):
+        async def send_raw(self, method, params=None, session_id=None):
+            if method == "Runtime.evaluate":
+                self.sent.append((method, params, session_id))
+                return {"result": {"type": "string", "value": params["expression"]}}
+            return await super().send_raw(method, params, session_id)
+
+    browser = TaskBrowser()
+    table = ScopeTable(browser.send_raw, PING)
+
+    async def run():
+        occupied = [(await table.begin())["owned_target"]["scope_id"] for _ in range(MAX_OPEN_SCOPES)]
+        guest = asyncio.create_task(table.begin(wait_seconds=1, priority=6))
+        await asyncio.sleep(0)
+        assert not guest.done()
+        assert await table.end(occupied.pop()) == {"ok": True, "closed": "disposed"}
+        admitted = (await guest)["owned_target"]
+        result = await table.handle({
+            "scope": admitted["scope_id"], "method": "Runtime.evaluate",
+            "params": {"expression": "menu for task 9"},
+        })
+        assert result["result"]["result"]["value"] == "menu for task 9"
+        assert await table.end(admitted["scope_id"]) == {"ok": True, "closed": "disposed"}
+        assert not table._waiters
+        assert len(table._open) == MAX_OPEN_SCOPES - 1
+        assert not any(m == "Target.getTargets" for m, _, _ in browser.sent)
+
+    asyncio.run(run())
+
+
+def test_wait_timeout_and_cancellation_do_not_leak_admission():
+    browser = RecordingBrowser()
+    table = ScopeTable(browser.send_raw, PING)
+
+    async def scenario():
+        opened = [(await table.begin())["owned_target"]["scope_id"] for _ in range(MAX_OPEN_SCOPES)]
+        assert await table.begin(wait_seconds=0.01) == {"error": "owned-scope: wait-timeout"}
+        blocked = asyncio.create_task(table.begin(wait_seconds=2))
+        await asyncio.sleep(0)
+        assert len(table._waiters) == 1
+        blocked.cancel()
+        with pytest.raises(asyncio.CancelledError):
+            await blocked
+        assert not table._waiters
+        assert await table.end(opened.pop()) == {"ok": True, "closed": "disposed"}
+        assert "owned_target" in await table.begin()
+
+    asyncio.run(scenario())
+
+
+def test_wait_admission_is_opt_in_and_inputs_are_bounded():
+    browser = RecordingBrowser()
+    table = ScopeTable(browser.send_raw, PING)
+    for params in (
+        {"wait_seconds": -1}, {"wait_seconds": 1000},
+        {"wait_seconds": "10"}, {"priority": 10},
+        {"priority": True}, {"priority": "9"},
+    ):
+        assert asyncio.run(table.begin(**params)) == {"error": "owned-scope: bad-admission"}
+    assert browser.sent == []
+
+
 def test_scoped_enumeration_and_lifecycle_never_reach_browser():
     browser = RecordingBrowser()
     table = ScopeTable(browser.send_raw, PING)

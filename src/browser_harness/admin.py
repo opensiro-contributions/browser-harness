@@ -737,7 +737,10 @@ class OwnedTargetError(RuntimeError):
 
 
 def _owned_request(name, req):
-    s, token = ipc.connect(name, timeout=10.0)
+    # A waiting admission uses an extended client reply deadline only for the
+    # explicit opt-in begin request; regular scope methods retain 10 seconds.
+    wait = req.get("wait_seconds", 0) if req.get("meta") == "begin_owned_target" else 0
+    s, token = ipc.connect(name, timeout=10.0 + wait)
     try:
         resp = ipc.request(s, token, req)
     finally:
@@ -771,7 +774,21 @@ def open_owned_target(name=None):
     if OWNED_CAPABILITY not in (status.get("capabilities") or ()):
         raise OwnedTargetError(f"daemon {daemon_name!r} does not support owned targets; restart it on this version")
     try:
-        resp = _owned_request(daemon_name, {"meta": "begin_owned_target"})
+        # The operator/parent sets task priority. The daemon only enforces
+        # capacity and chooses an order among waiting scoped invocations.
+        wait_raw = os.environ.get("BH_OWNED_WAIT_SECONDS", "0")
+        priority_raw = os.environ.get("BH_OWNED_PRIORITY", "0")
+        try:
+            wait_seconds = float(wait_raw)
+            priority = int(priority_raw)
+        except ValueError as e:
+            raise OwnedTargetError("invalid owned admission settings") from e
+        if not 0 <= wait_seconds <= 30 or not 0 <= priority <= 9:
+            raise OwnedTargetError("owned admission wait must be 0..30s and priority 0..9")
+        request = {"meta": "begin_owned_target"}
+        if wait_seconds or priority:
+            request.update(wait_seconds=wait_seconds, priority=priority)
+        resp = _owned_request(daemon_name, request)
     except (OSError, ValueError) as e:
         raise OwnedTargetError(f"could not open owned target: {e}") from e
     lease = resp.get("owned_target")

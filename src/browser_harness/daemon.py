@@ -688,7 +688,7 @@ class Daemon:
         if meta == "begin_owned_target":
             if self._shutting_down:
                 return {"error": "daemon is shutting down"}
-            return await self.scopes.begin()
+            return await self.scopes.begin(wait_seconds=req.get("wait_seconds", 0), priority=req.get("priority", 0))
         if meta == "drain_events":
             out = list(self.events); self.events.clear()
             return {"events": out}

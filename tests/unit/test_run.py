@@ -423,6 +423,34 @@ def test_owned_target_runs_ping_begin_body_end_without_enumeration(monkeypatch, 
     assert (wire.daemon.session, wire.daemon.target_id) == ("user-session", "user-tab")
 
 
+def test_owned_target_opt_in_admission_reaches_daemon(monkeypatch, capsys):
+    wire = _OwnedDaemonWire(monkeypatch)
+    monkeypatch.setenv("BH_OWNED_WAIT_SECONDS", "4")
+    monkeypatch.setenv("BH_OWNED_PRIORITY", "7")
+    _run_owned(monkeypatch, "print(current_tab()['targetId'])")
+    assert capsys.readouterr().out.strip() == "owned-target"
+    begin = [req for req in wire.requests if req.get("meta") == "begin_owned_target"]
+    assert begin == [{"meta": "begin_owned_target", "wait_seconds": 4.0, "priority": 7}]
+    assert "Target.getTargets" not in wire.cdp_methods()
+
+
+@pytest.mark.parametrize(("name", "value"), [
+    ("BH_OWNED_WAIT_SECONDS", "nan"),
+    ("BH_OWNED_WAIT_SECONDS", "50"),
+    ("BH_OWNED_PRIORITY", "10"),
+    ("BH_OWNED_PRIORITY", "-1"),
+])
+def test_owned_target_invalid_admission_never_executes_body(monkeypatch, capsys, name, value):
+    wire = _OwnedDaemonWire(monkeypatch)
+    monkeypatch.setenv(name, value)
+    with pytest.raises(SystemExit) as exc:
+        _run_owned(monkeypatch, "print('unexpected body')")
+    assert exc.value.code == 1
+    out = capsys.readouterr()
+    assert "unexpected body" not in out.out
+    assert not any(req.get("meta") == "begin_owned_target" for req in wire.requests)
+
+
 def test_owned_target_missing_daemon_runs_nothing(monkeypatch, capsys):
     def refuse(_name, timeout=1.0):
         raise FileNotFoundError("no socket")

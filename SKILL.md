@@ -266,6 +266,16 @@ If you get stuck on a browser mechanic, check https://github.com/browser-use/bro
   if the script raised, the call disposes the context. A failed dispose is
   reported on stderr, and a daemon whose pid changed mid-run is left untouched.
   Older daemons need a restart to gain the capability.
+  Optional bounded admission for bursts of independent owned-target scripts:
+  `BH_OWNED_WAIT_SECONDS=10 BH_OWNED_PRIORITY=5 BH_OWNED_TARGET=1 browser-harness`
+  waits up to 10 seconds for an available scope instead of immediately failing
+  when eight scopes are active. Waiting requests are admitted by descending
+  operator-assigned priority (0–9), then FIFO. At most 32 waiters are allowed;
+  timed-out/cancelled waiters are removed. Default wait is zero and preserves
+  fail-fast capacity behavior. The daemon never preempts running tasks or
+  accesses foreign tabs to free capacity. These settings assume a trusted
+  operator assigns meaningful priorities; this is **admission support**, not a
+  security/authorization policy or an autonomous whole-system S3 controller.
 - Core helpers stay short. Put task-specific helper additions in `$BH_AGENT_WORKSPACE/agent_helpers.py`.
 
 ## Gotchas
