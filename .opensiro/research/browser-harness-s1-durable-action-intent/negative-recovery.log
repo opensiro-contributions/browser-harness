@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/tmp/opensiro-bh-s1-action-20261116/product/src/browser_harness/run.py", line 413, in <module>
+    main()
+  File "/tmp/opensiro-bh-s1-action-20261116/product/src/browser_harness/run.py", line 255, in main
+    _run(args)
+  File "/tmp/opensiro-bh-s1-action-20261116/product/src/browser_harness/run.py", line 409, in _run
+    exec(code, globals())
+  File "<string>", line 3, in <module>
+  File "/tmp/opensiro-bh-s1-action-20261116/product/src/browser_harness/run.py", line 168, in wrapper
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/tmp/opensiro-bh-s1-action-20261116/product/src/browser_harness/action_guard.py", line 139, in guarded_action
+    raise ActionOutcomeUnknown(
+browser_harness.action_guard.ActionOutcomeUnknown: saved intent exists but the postcondition is not confirmed; action was NOT repeated

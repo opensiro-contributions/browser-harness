@@ -1,0 +1,35 @@
+{
+  "schema_version": 2,
+  "id": "browser-harness-s1-durable-action-intent",
+  "original_repository": "browser-use/browser-harness",
+  "working_fork": "opensiro-contributions/browser-harness",
+  "title": "Fail-closed durable task action intent across CLI restarts",
+  "contribution_type": "ASSESSMENT_INFORMED",
+  "classification_rationale": "The pinned 2026-09-18 Index assessment identifies autonomous S1 browser-task action/feedback closure and its first-party editable operating workspace. This informed placing a durable action-intent and server-backed postcondition reconciliation in the S1 helper layer, addressing separately reported false-successful operations and task-recovery needs. Neither a specific earlier prediction nor an ASSESSMENT_DERIVED causal chronology is claimed.",
+  "classification_evidence": [
+    "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/assessments/br/browser-harness.md",
+    "https://github.com/browser-use/browser-harness/pull/675",
+    "https://github.com/browser-use/browser-harness/issues/662",
+    "https://github.com/browser-use/browser-harness/issues/998",
+    "https://github.com/opensiro-contributions/browser-harness/commit/0be45c484fe3a7a721bad48f37dc288ca9ee0fbc"
+  ],
+  "assessment_pin": {
+    "url": "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/assessments/br/browser-harness.md",
+    "reviewed_at": "2026-09-18",
+    "assessed_source_revision": "afbcc381b963040c19627d788e40c7e7663171ee"
+  },
+  "work_state": "BUILD",
+  "next_action": "Native S1 product work tested and branch published; exact fork-local review PR title/body/diff and five-link preview must be shown to owner for explicit current-conversation approval before creating a PUBLIC fork-local PR. External original PR separately requires fresh exact-action approval.",
+  "source_revision": "8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
+  "native_evidence": [
+    "https://github.com/opensiro-contributions/browser-harness/commit/0be45c484fe3a7a721bad48f37dc288ca9ee0fbc",
+    "https://github.com/opensiro-contributions/browser-harness/blob/0be45c484fe3a7a721bad48f37dc288ca9ee0fbc/tests/unit/test_action_guard.py",
+    "https://github.com/opensiro-contributions/browser-harness/blob/opensiro/meta/.opensiro/research/browser-harness-s1-durable-action-intent/README.md"
+  ],
+  "work_branches": [
+    "https://github.com/opensiro-contributions/browser-harness/tree/opensiro/upgrade-s1-durable-action-intent-20261116"
+  ],
+  "external_prs": [],
+  "last_event_id": "2026-11-16T165118Z--browser-harness-s1-durable-action-ready",
+  "technical_scope": "At-most-one guarded Python action callback per persistent key/workspace; async outcome reconciled by exact caller-supplied verifier; unknown effects fail closed. Not remote exactly-once, tab ownership, S2 authority, or an autonomy grade."
+}

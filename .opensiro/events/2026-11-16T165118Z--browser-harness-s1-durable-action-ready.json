@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "id": "2026-11-16T165118Z--browser-harness-s1-durable-action-ready",
+  "recorded_at": "2026-11-16T16:51:18Z",
+  "actor": "OpenSiro ChatGPT agent (owner-directed S1 capability upgrade)",
+  "kind": "IMPLEMENTATION_CHECKPOINT",
+  "contribution_id": "browser-harness-s1-durable-action-intent",
+  "decision": "NATIVE_TESTED_AWAITING_FORK_LOCAL_REVIEW_CONSENT",
+  "evidence_urls": [
+    "https://github.com/opensiro-contributions/browser-harness/commit/0be45c484fe3a7a721bad48f37dc288ca9ee0fbc",
+    "https://github.com/opensiro-contributions/browser-harness/tree/opensiro/upgrade-s1-durable-action-intent-20261116",
+    "https://github.com/opensiro-contributions/browser-harness/blob/opensiro/meta/.opensiro/research/browser-harness-s1-durable-action-intent/README.md",
+    "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/assessments/br/browser-harness.md"
+  ],
+  "summary": "Selected original browser-use/browser-harness SHA 8ec26f; same-source naive browser CLI retry created two receipts. New opt-in durable action-intent wrapper uses committed SQLite intent before callback; separate CLI recovered confirmed result without reexecuting (server count 1), and absent receipt failed closed (count 0). Full original unit suite 266 passed/1 skipped; candidate 272 passed/1 skipped. Source-native Chrome157 smoke passed. No claimed production exactly-once or model-driven agent proof. Five-file code branch ready, but PUBLIC fork-local review PR not approved/created and external PR not published.",
+  "next_action": "Native S1 product work tested and branch published; exact fork-local review PR title/body/diff and five-link preview must be shown to owner for explicit current-conversation approval before creating a PUBLIC fork-local PR. External original PR separately requires fresh exact-action approval."
+}

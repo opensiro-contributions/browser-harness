@@ -1,0 +1,29 @@
+{
+  "slowb": {
+    "id": "slowb",
+    "count": 2,
+    "receipts": [
+      "7aff7a932816",
+      "bf69ac7c31cc"
+    ]
+  },
+  "slowguard": {
+    "id": "slowguard",
+    "count": 1,
+    "receipts": [
+      "b02307b3058e"
+    ]
+  },
+  "slowmissing": {
+    "id": "slowmissing",
+    "count": 0,
+    "receipts": []
+  },
+  "slownormal": {
+    "id": "slownormal",
+    "count": 1,
+    "receipts": [
+      "bb3e2fd3b1a0"
+    ]
+  }
+}

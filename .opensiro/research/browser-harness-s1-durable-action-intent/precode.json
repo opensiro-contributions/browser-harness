@@ -1,0 +1,34 @@
+{
+  "created_before_product_coding": true,
+  "source_ref": "browser-use/browser-harness@8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
+  "function": "S1",
+  "origin": "ASSESSMENT_INFORMED (candidate, not yet qualified)",
+  "candidate": "Durable fail-closed task action intent & postcondition verification across CLI process restart",
+  "source_native_need": [
+    "https://github.com/browser-use/browser-harness/pull/675 (five falsely successful Google Sheets writes, post-readback necessary)",
+    "https://github.com/browser-use/browser-harness/issues/998 (task tab reconnection after loss)",
+    "https://github.com/browser-use/browser-harness/issues/662 (click reports success after no-op)"
+  ],
+  "mechanism": "external agent chooses task action; first-party harness persists action intent before execution and requires independently read-back app postcondition before reporting completion. On subsequent independent process, same action key may only reconcile from observed success; unknown postcondition refuses another action.",
+  "baseline_alternatives": "SKILL.md currently instructs agent to verify via js/page_info; agent can author own checkpoint in agent_helpers.py. #768 adds wait_until predicate, #791 verifies input delivery, #1034 reconnects tab. None proves durable cross-process action intent/exact-once behavior.",
+  "scope": "NOT general exactly-once, transactional HTTP, payment guard or ownership authorization; no automatic retries. Caller supplies unique action key and a trustworthy postcondition.",
+  "experiment": "Disposable local ticket-creation form; original without persisted task intent reissues after interruption, doubling server ledger. Best manual alternative checks readback first, but requires bespoke code. Candidate new primitive should reconcile previous action after new CLI process, 1 ledger record; absent postcondition raises and does not submit again.",
+  "success": "repeated invocation same action key: server count exactly 1 and independently reverified receipt; lost response/no evidence: fail closed with count <=1; two concurrent agents with same key cannot both submit; ordinary read-only CLI unaffected",
+  "negative_controls": "changed task fingerprint; verifier raises; browser missing/no status; process crash after intent; cross-owner key collision; no phantom completion",
+  "decision": "MATERIAL_DELTA_SUPPORTED for bounded fail-closed across-process action intent: repeated submission after ambiguous result makes actual duplicate side effects. First-party durable intent enables safe reconciliation/refusal without bespoke application-specific state-machine, where existing simple status-probe workaround risks duplicate. This is a qualified S1 agent-operation continuity hypothesis, not an autonomy-grade claim.",
+  "fixture_sha256": "7f6023f72de194b0296b9c051704f6c94498b3b0d9d0aa4cce59aa229e190c72",
+  "timing_disturbance": "slow-prefixed task IDs introduce 1.5s asynchronous server commit lag: a quick readback may truthfully show count=0 even after the first submit has left the browser; blindly retrying can create duplicate writes",
+  "observed_source_native_baseline": {
+    "source_sha": "8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
+    "browser": "HeadlessChrome 157.0.8103.78",
+    "first_process": "browser-harness CLI click helper returned; immediate backend count was 0 due to delayed async commit",
+    "second_process": "same tab, same action; browser-harness CLI click returned",
+    "server_count_after_settle": 2,
+    "server_receipts": [
+      "7aff7a932816",
+      "bf69ac7c31cc"
+    ],
+    "fixture_sha256": "7f6023f72de194b0296b9c051704f6c94498b3b0d9d0aa4cce59aa229e190c72"
+  },
+  "best_alternative_observation": "User-authored durable intent log in agent_helpers.py can solve this today; but native supplied js/page_info or wait_for_* alone do not persist cross-process side-effect identity, and status=0 during in-flight commit is not proof of a safe retry. No universal exactly-once guarantee claimed."
+}
