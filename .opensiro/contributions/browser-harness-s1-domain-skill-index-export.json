@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "id": "browser-harness-s1-domain-skill-index-export",
+  "original_repository": "browser-use/browser-harness",
+  "working_fork": "opensiro-contributions/browser-harness",
+  "title": "Make agent-authored browser domain skills discoverable as individual SKILL.md entries",
+  "contribution_type": "ASSESSMENT_INFORMED",
+  "classification_rationale": "The pinned Index S1=A assessment (2026-09-18) and exploratory 2026-09-22 learned-regulator note identify Browser Harness's agent-editable S1 operational repertoire and its consumption boundary. Source issue browser-use/browser-harness#155 independently documents the exact lazy-loader discoverability problem. The new opt-in native exporter makes existing S1 domain rules addressable by SKILL.md indexers. This is an assessment-informed functional hypothesis, not an Index-first specific prediction or proof of endogenous learning.",
+  "classification_evidence": [
+    "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/assessments/br/browser-harness.md",
+    "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/experiments/self-organizing-autonomy/notes/browser-harness-s1-learning.md",
+    "https://github.com/browser-use/browser-harness/issues/155",
+    "https://github.com/browser-use/browser-harness/pull/163",
+    "https://github.com/browser-use/browser-harness/pull/1025",
+    "https://github.com/opensiro-contributions/browser-harness/commit/13c404281b89003c3675d64a903cdc98b2139a96"
+  ],
+  "assessment_pin": {
+    "url": "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/assessments/br/browser-harness.md",
+    "reviewed_at": "2026-09-18",
+    "assessed_source_revision": "afbcc381b963040c19627d788e40c7e7663171ee"
+  },
+  "work_state": "READY",
+  "next_action": "Code and native functional proof are ready in the pinned fork branch; show the exact fork-local PR title/body, verified 5-file diff and all evidence URLs to the owner, and obtain separate exact current-conversation consent BEFORE creating the PUBLIC fork-local review PR. External PR not created or authorized. No LLM outcome or autonomous skill-learning improvement claimed.",
+  "source_revision": "8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
+  "native_evidence": [
+    "https://github.com/opensiro-contributions/browser-harness/commit/13c404281b89003c3675d64a903cdc98b2139a96",
+    "https://github.com/opensiro-contributions/browser-harness/blob/13c404281b89003c3675d64a903cdc98b2139a96/tests/unit/test_domain_skills.py",
+    "https://github.com/opensiro-contributions/browser-harness/blob/13c404281b89003c3675d64a903cdc98b2139a96/src/browser_harness/domain_skills.py",
+    "https://github.com/opensiro-contributions/browser-harness/compare/main...opensiro/upgrade-s1-domain-skill-export-20261116",
+    "https://github.com/browser-use/browser-harness/issues/155"
+  ],
+  "work_branches": [
+    "https://github.com/opensiro-contributions/browser-harness/tree/opensiro/upgrade-s1-domain-skill-export-20261116"
+  ],
+  "external_prs": [],
+  "last_event_id": "2026-11-16T162038Z--browser-harness-s1-domain-skill-export-validated",
+  "functional_evidence": {
+    "actor": "User or coding agent integrating Browser Harness domain workflows with a lazy-loaded SKILL.md-indexing agent such as Hermes.",
+    "task": "Convert existing site-specific Markdown into separately name-addressable SKILL.md entries without loading the primary Browser Harness skill or starting a daemon.",
+    "before": "174 first-party domain skill Markdown files in pinned current original; 0 SKILL.md entries in their tree. BH_DOMAIN_SKILLS only surfaces filenames after a navigation; manual per-session search/copy is the original alternative.",
+    "after": "Opt-in CLI export produces 174 individually named SKILL.md files with valid name/description frontmatter and preserved source bodies. Independent fresh scanner process found 174, including browser-harness-github-repo-actions; second run created none and left 174 unchanged.",
+    "native_tests": "PYTHONPATH=src ../browser-harness/.venv/bin/python -m pytest -q tests/unit : 274 passed, 1 skipped on product branch source; clean baseline 266 passed, 1 skipped in the separately pinned clean worktree.",
+    "negative_controls": "Unmanaged and modified output files are not overwritten; unsafe symlinks, source-output recursion, naming collisions and partial preflight conflicts are rejected; existing CLI never starts daemon during export; source Markdown unchanged.",
+    "vsm_scope": "S1 operational repertoire accessibility only. No proof the LLM reads/chooses a skill, improved real task outcome, independent learning, or change to canonical S1 autonomy grade.",
+    "overlap": "Original issue #155 completed historically; PR #163 closed unmerged (documentation only); PR #1025 implements saved script replay, not SKILL.md indexing; PR #908 handles the primary skill/Cloud behavior, not export.",
+    "disposition": "Material narrow functional delta supported by native integration; external agent task outcome remains untested."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "2026-11-16T162038Z--browser-harness-s1-domain-skill-export-validated",
+  "recorded_at": "2026-11-16T16:20:38Z",
+  "actor": "OpenSiro assistant (user-directed upstream upgrade)",
+  "kind": "NATIVE_FEATURE_VALIDATION",
+  "contribution_id": "browser-harness-s1-domain-skill-index-export",
+  "decision": "SOURCE_NATIVE_CAPABILITY_QUALIFIED_AWAITING_PUBLIC_REVIEW_CONSENT",
+  "evidence_urls": [
+    "https://github.com/opensiro-contributions/browser-harness/commit/13c404281b89003c3675d64a903cdc98b2139a96",
+    "https://github.com/opensiro-contributions/browser-harness/blob/13c404281b89003c3675d64a903cdc98b2139a96/tests/unit/test_domain_skills.py",
+    "https://github.com/opensiro-contributions/browser-harness/blob/13c404281b89003c3675d64a903cdc98b2139a96/src/browser_harness/domain_skills.py",
+    "https://github.com/opensiro-contributions/browser-harness/compare/main...opensiro/upgrade-s1-domain-skill-export-20261116",
+    "https://github.com/browser-use/browser-harness/issues/155"
+  ],
+  "source_sha": "8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
+  "product_head_sha": "13c404281b89003c3675d64a903cdc98b2139a96",
+  "summary": "Prepared a distinct S1 domain-skill index exporter on the pinned, verified fork product branch. Source-only baseline: 174 domain Markdown files, 0 SKILL.md entrypoints. Opt-in native export: fresh scanner finds 174 name/description-indexed entries, content preserved, second run unchanged. Full native suite: 274 passed, 1 skipped. Five-file original-target diff; no external PR or public fork review PR. Only deterministic discoverability capability demonstrated; no model outcome, autonomous learning, security guarantee or VSM grade increase claimed.",
+  "next_action": "Code and native functional proof are ready in the pinned fork branch; show the exact fork-local PR title/body, verified 5-file diff and all evidence URLs to the owner, and obtain separate exact current-conversation consent BEFORE creating the PUBLIC fork-local review PR. External PR not created or authorized. No LLM outcome or autonomous skill-learning improvement claimed."
+}
