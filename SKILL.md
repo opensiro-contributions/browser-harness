@@ -15,6 +15,24 @@ Domain skills are off by default. Set `BH_DOMAIN_SKILLS=1` to enable them; see t
 
 **If `BH_DOMAIN_SKILLS=1` and the task is site-specific, read every file in the matching `$BH_AGENT_WORKSPACE/domain-skills/<site>/` directory before inventing an approach.**
 
+For **lazy-loaded agent skill scanners** (which index only `SKILL.md` entrypoints),
+you can explicitly export your existing domain skills to a separate agent skill
+directory, without starting a browser:
+
+```bash
+BH_AGENT_WORKSPACE=/path/to/agent-workspace browser-harness domain-skills export --output /path/to/agent-external-skills
+```
+
+Configure your agent's external skills search directory to include the output.
+Each source `domain-skills/<site>/<workflow>.md` becomes one named `SKILL.md`
+containing the original instructions. After learning or editing a source
+skill, rerun with `--update-managed` to refresh unmodified generated entries.
+This is a **manual opt-in export**, not automatic agent learning, proof that
+an LLM used a skill, or a verification of third-party content. Source Markdown
+may contain untrusted site instructions: inspect it before enabling discovery.
+The exporter never overwrites unrelated or manually edited skill files.
+
+
 ## Usage
 
 ```bash
