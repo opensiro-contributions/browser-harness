@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "browser-harness-fail-closed-tab-reconnection",
+  "original_repository": "browser-use/browser-harness",
+  "title": "Fail-closed reconnection for task-owned Chrome tabs",
+  "work_state": "DELIVERED",
+  "next_action": "Observe browser-use/browser-harness#1034 for review, merge, or closure; record first-party status updates only after readback.",
+  "source_revision": "8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
+  "native_evidence": [
+    "https://github.com/opensiro-contributions/browser-harness/commit/4056c5aece6e4a83ea999d60e42482b84f9eed7b",
+    "https://github.com/opensiro-contributions/browser-harness/blob/4056c5aece6e4a83ea999d60e42482b84f9eed7b/tests/unit/test_tab_reconnect.py"
+  ],
+  "work_branches": [
+    "https://github.com/opensiro-contributions/browser-harness/tree/opensiro/upgrade-fail-closed-tab-reconnect-20261116"
+  ],
+  "external_prs": [
+    "https://github.com/browser-use/browser-harness/pull/1034"
+  ],
+  "last_event_id": "2026-11-16T132212Z--browser-harness-pr-1034-published"
+}

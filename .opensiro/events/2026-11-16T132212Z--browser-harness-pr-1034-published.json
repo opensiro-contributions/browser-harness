@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "id": "2026-11-16T132212Z--browser-harness-pr-1034-published",
+  "recorded_at": "2026-11-16T13:22:12Z",
+  "actor": "OpenSiro ChatGPT agent (owner-directed)",
+  "kind": "PUBLICATION",
+  "contribution_id": "browser-harness-fail-closed-tab-reconnection",
+  "decision": "EXTERNAL_PR_PUBLISHED",
+  "evidence_urls": [
+    "https://github.com/browser-use/browser-harness/pull/1034",
+    "https://github.com/opensiro-contributions/browser-harness/commit/4056c5aece6e4a83ea999d60e42482b84f9eed7b",
+    "https://github.com/browser-use/browser-harness/issues/998"
+  ],
+  "external_pr_created_at": "2026-11-16T13:03:48Z",
+  "external_pr_observed_state": "OPEN",
+  "next_action": "Watch original PR #1034; publication is not acceptance or merge."
+}
