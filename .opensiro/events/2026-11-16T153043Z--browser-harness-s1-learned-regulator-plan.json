@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "id": "2026-11-16T153043Z--browser-harness-s1-learned-regulator-plan",
+  "recorded_at": "2026-11-16T15:30:43Z",
+  "actor": "OpenSiro ChatGPT agent (owner-directed)",
+  "kind": "RESEARCH_PLAN",
+  "contribution_id": "browser-harness-s1-learned-regulator-reuse",
+  "decision": "REGISTER_SOURCE_PINNED_S1_EXPERIMENT",
+  "evidence_urls": [
+    "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/assessments/br/browser-harness.md",
+    "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/experiments/self-organizing-autonomy/notes/browser-harness-s1-learning.md",
+    "https://github.com/browser-use/browser-harness/blob/8ec26f6974015a78eaf5494fe35bb9ba1f6b3598/src/browser_harness/helpers.py",
+    "https://github.com/browser-use/browser-harness/blob/8ec26f6974015a78eaf5494fe35bb9ba1f6b3598/SKILL.md"
+  ],
+  "summary": "Created distinct S1 experience-to-learned-regulator research plan for the already selected browser-use/browser-harness. Define a cold baseline, independently generated skill/helper, persistence and subsequent reuse, matched held-out trials and ablation/negative controls. No experiment executed, no verified material capability delta, no product branch or external PR.",
+  "next_action": "Reproduce the source-pinned baseline, then pre-register and run actual agent+browser matched cold/learned/ablated trials. Do not implement a product feature or propose a fork-local/external PR until a material new user outcome and original-native gap are demonstrated. Stop with EVIDENCE_INSUFFICIENT/NO_QUALIFIED_IMPROVEMENT when evidence fails."
+}

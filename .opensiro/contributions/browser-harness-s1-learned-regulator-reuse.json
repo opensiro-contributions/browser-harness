@@ -1,0 +1,60 @@
+{
+  "schema_version": 2,
+  "id": "browser-harness-s1-learned-regulator-reuse",
+  "original_repository": "browser-use/browser-harness",
+  "working_fork": "opensiro-contributions/browser-harness",
+  "title": "S1 learned-regulator: autonomous discovery, persistence and later reuse",
+  "contribution_type": "ASSESSMENT_INFORMED",
+  "classification_rationale": "The pinned 2026-09-18 Index assessment classifies Browser Harness S1 as A and establishes an agent-editable operating workspace, while the pinned 2026-09-22 exploratory S1 learned-regulator note identifies an unproven experience-to-repertoire hypothesis. These sources inform a new, bounded empirical test; no prior specific prediction causally proving an upgrade, independently verified learning result, or ASSESSMENT_DERIVED claim is asserted.",
+  "classification_evidence": [
+    "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/assessments/br/browser-harness.md",
+    "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/experiments/self-organizing-autonomy/notes/browser-harness-s1-learning.md",
+    "https://github.com/browser-use/browser-harness/blob/8ec26f6974015a78eaf5494fe35bb9ba1f6b3598/SKILL.md",
+    "https://github.com/browser-use/browser-harness/blob/8ec26f6974015a78eaf5494fe35bb9ba1f6b3598/src/browser_harness/helpers.py",
+    "https://github.com/browser-use/browser-harness/pull/218"
+  ],
+  "assessment_pin": {
+    "url": "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/assessments/br/browser-harness.md",
+    "reviewed_at": "2026-09-18",
+    "assessed_source_revision": "afbcc381b963040c19627d788e40c7e7663171ee"
+  },
+  "work_state": "RESEARCH",
+  "next_action": "Reproduce the source-pinned baseline, then pre-register and run actual agent+browser matched cold/learned/ablated trials. Do not implement a product feature or propose a fork-local/external PR until a material new user outcome and original-native gap are demonstrated. Stop with EVIDENCE_INSUFFICIENT/NO_QUALIFIED_IMPROVEMENT when evidence fails.",
+  "source_revision": "8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
+  "native_evidence": [],
+  "work_branches": [],
+  "external_prs": [],
+  "last_event_id": "2026-11-16T153043Z--browser-harness-s1-learned-regulator-plan",
+  "research_contract": {
+    "research_status": "NOT_EXECUTED",
+    "objective": "Evaluate whether Browser Harness S1 itself learns a materially different browser-task regulator from a real failed task, legitimately saves it in an agent-editable extension surface, and uses it in an independent later invocation to close the same disturbance class.",
+    "baseline": "At the pinned source, BH_DOMAIN_SKILLS=1 and goto_url can surface existing site-skill filenames, and agent_helpers.py can be loaded. This is existing functionality, not a new feature; two domain-skill unit tests and an Expedia domain skill do not establish autonomous learning or downstream user benefit.",
+    "actor_task_output": "An independent agent is given a browser-only task to complete a date-constrained search in a disposable local interactive web app and report the exact normalized results identifier and dates. The observable outcome is correct completion within a fixed action/time budget without changing another tab.",
+    "need_and_material_delta": "A reproducible class of browser interaction failures must prevent/seriously impair cold agents despite the best existing documented workflow. A self-discovered site-specific alternative, persisted without human-supplied missing logic, should let fresh agent runs complete that user task when controls cannot. If the native harness already achieves it without new code, record research evidence only, not a new Upstream patch.",
+    "fixture": {
+      "type": "Disposable local browser-served task, not a real user's account or third-party bypass",
+      "disturbance": "Date-picker path intermittently fails or loses selected values in a controlled, task-realistic way; legitimate URL-backed search path is discoverable through browser observations but its exact rule is not provided to the agent.",
+      "measurement": "Independent server-side verification of final result/date tuple, browser-state trace and action log; no success inferred from helper-return values or green mocks.",
+      "freeze": "Pin original repo SHA, runtime/browser version, fixture source SHA, task variants and random seeds, agent/model/provider settings, prompts, time/action/token budgets, retry policy and scoring before any treatment run.",
+      "caveat": "A synthetic fixture establishes only bounded mechanism evidence. No claim of production task improvement follows without an independently grounded source-native user need."
+    },
+    "protocol": [
+      "P0: Source-first eligibility and overlap: check original documentation, existing skills and open PRs; select a task genuinely impeded under current supported behavior. Freeze protocol before training.",
+      "P1: Cold baseline: run at least five matched held-out tasks in fresh agent contexts and clean workspaces, with BH_DOMAIN_SKILLS=1 but no learned rule. Measure verified completions, errors, actions and time.",
+      "P2: Learning episode: a fresh operating agent encounters the failure; capture which actor noticed it, candidate actions, negative outcomes, and a valid newly discovered regulator. Permit writes only inside its authorized agent-workspace; do not preseed or hand-author the solution.",
+      "P3: Persistence and independent reuse: save the operating agent's actual rule as a site-specific domain skill or executable helper, then start fresh agent contexts/processes. Confirm that the legitimate first-party loader surfaces/loads that exact artifact and it changes subsequent action decisions.",
+      "P4: Matched held-out treatment: run five comparable tasks with the same budgets and fresh agents, using the actual learned artifact. Record server-verified end-to-end results; no training-task answer leakage.",
+      "P5: Ablation and negative controls: remove/hide the learned artifact while keeping all other settings matched; test one unrelated domain and one changed/unmatched task. Prove no broad accidental application, cross-tab mutation or reliance on a prewritten rule.",
+      "P6: Compare cold / learned / ablated results, provenance and scope. Separate mechanisms already present in current Browser Harness from any genuinely missing feature; publish no improvement claim without material delta and source-native acceptance."
+    ],
+    "preregistered_screen": "For this bounded five-pair discovery screen, a strong candidate requires at least 4/5 server-verified held-out treatment successes and at least three more successes than the matched cold baseline, with no unauthorized tab changes; also show the learned run's decision trace truly used the agent-created rule. This is an experiment-specific screen, not a universal VSM metric or proof of a general agent improvement.",
+    "mandatory_provenance": [
+      "Record before/after source revision, runtime flags, artifacts and immutable trace hashes.",
+      "Capture initial failure and the actor responsible for inferring the missing rule, plus what information the agent actually saw.",
+      "Demonstrate no human/external constructor injected the regulator, and no copying from existing Expedia/other shipped skills, prompts, or hidden fixture keys.",
+      "Show persisted artifact, loader visibility and later use in distinct invocation, with independent read-back of correct user result.",
+      "Distinguish outcome improvement from mere generation of a Markdown file, test double success, convenience helper or faster no-op."
+    ],
+    "exit_gate": "MATERIAL_DELTA_SUPPORTED is possible only with a demonstrated new or materially more reliable native user/agent task and an independently evidenced unserved need. Otherwise DELTA_PENDING or NO_MATERIAL_DELTA, retain findings with no product PR. An S1=A baseline and exploratory note never imply an S finding, a canonical re-assessment or S1 autonomy grade change."
+  }
+}
