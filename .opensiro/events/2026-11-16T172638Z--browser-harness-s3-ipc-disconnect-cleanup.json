@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "2026-11-16T172638Z--browser-harness-s3-ipc-disconnect-cleanup",
+  "recorded_at": "2026-11-16T17:26:38Z",
+  "actor": "AI-assisted OpenSiro Upstream operator",
+  "kind": "CHECKPOINT",
+  "contribution_id": "browser-harness-s3-owned-scope-priority-admission",
+  "decision": "REAL_IPC_CANCELLATION_REGRESSION_REPRODUCED_AND_FIXED; EXPERIMENT_NOT_PUBLICATION_READY",
+  "evidence_urls": [
+    "https://github.com/opensiro-contributions/browser-harness/commit/7eba11415aac4dcbf703516f170db6d4e22b24ba",
+    "https://github.com/opensiro-contributions/browser-harness/blob/7eba11415aac4dcbf703516f170db6d4e22b24ba/tests/integration/owned_admission_ipc_canary.py",
+    "https://github.com/browser-use/browser-harness/pull/911"
+  ],
+  "native_validation": {
+    "baseline": "prior experiment 6160b0e retained dead waiting client in real-socket canary (expected failure)",
+    "revised": "7eba114 verified in clean remote worktree; 344 passed, 1 skipped; real IPC fake-CDP canary 3 PASS and local canary 5 PASS; git diff --check PASS",
+    "chrome": "NOT_RUN missing system libraries",
+    "feature_scope": "S3-informed shared capacity and operator-assigned priority; no claim of autonomous first-party S3"
+  },
+  "next_action": "Verified dependent experiment on unpublished original PR #911 head: exact remote 7eba11415aac4dcbf703516f170db6d4e22b24ba passed 344 unit tests (1 skipped) and 3 deterministic real UNIX socket / real CLI / fake-CDP canary runs. Prior experimental version reproducibly retained a killed waiter's queue slot; new daemon handler removes it and cleans concurrent acquisition. No real Chrome proof: available headless binary lacks libglib/libnss etc in executor. Material superiority to a host-side queue and full S3 decision ownership are unproven; request no fork-local/external PR publication without exact current-conversation approval and further source-native/user task evidence. Original PR #911 remains unmerged; investigate S4 within the same original if relevant."
+}
