@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "id": "2026-11-16T141329Z--browser-harness-origin-classification-correction",
+  "recorded_at": "2026-11-16T14:13:29Z",
+  "actor": "OpenSiro ChatGPT agent (owner-directed)",
+  "kind": "CORRECTION",
+  "contribution_id": "browser-harness-fail-closed-tab-reconnection",
+  "decision": "GENERAL_UPSTREAM_CLASSIFICATION_RECORDED",
+  "previous_record_sha": "abeedc6c7151d1960bf8352025181edb75033558",
+  "evidence_urls": [
+    "https://github.com/browser-use/browser-harness/issues/998",
+    "https://github.com/browser-use/browser-harness/pull/1034",
+    "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/assessments/br/browser-harness.md"
+  ],
+  "next_action": "Preserve the classification and independently observe original PR #1034; do not infer VSM-derived causality or merge benefit."
+}

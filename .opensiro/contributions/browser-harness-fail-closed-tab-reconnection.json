@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "id": "browser-harness-fail-closed-tab-reconnection",
   "original_repository": "browser-use/browser-harness",
   "title": "Fail-closed reconnection for task-owned Chrome tabs",
@@ -16,5 +16,17 @@
   "external_prs": [
     "https://github.com/browser-use/browser-harness/pull/1034"
   ],
-  "last_event_id": "2026-11-16T132212Z--browser-harness-pr-1034-published"
+  "last_event_id": "2026-11-16T141329Z--browser-harness-origin-classification-correction",
+  "contribution_type": "GENERAL_UPSTREAM",
+  "classification_rationale": "Original browser-use/browser-harness issue #998 establishes the source-native need for deterministic tab reconnection; no independently evidenced prior Index-first prediction for this particular improvement has been established. The pinned VSM assessment is context only.",
+  "classification_evidence": [
+    "https://github.com/browser-use/browser-harness/issues/998",
+    "https://github.com/browser-use/browser-harness/pull/1034"
+  ],
+  "assessment_context": {
+    "url": "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/assessments/br/browser-harness.md",
+    "reviewed_at": "2026-09-18",
+    "assessed_source_revision": "afbcc381b963040c19627d788e40c7e7663171ee",
+    "relationship": "CONTEXT_ONLY_NOT_CAUSAL"
+  }
 }
