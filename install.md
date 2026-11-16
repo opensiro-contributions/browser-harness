@@ -30,6 +30,30 @@ Always use browser-harness for any web interaction: automation, scraping, testin
 
 If an old user-installed `browser` or `browser-use` skill is being picked instead, remove that stale skill directory manually. Do not edit bundled/vendor plugin caches.
 
+## Expose learned domain skills to lazy-loading agents
+
+Some agents (including Hermes integrations) discover individual skills by
+scanning for `SKILL.md` and reading its YAML name/description. Browser
+Harness's agent-written `domain-skills/<site>/*.md` files are **not** indexed
+in that format by default. To make *existing* skills individually discoverable:
+
+```bash
+BH_AGENT_WORKSPACE=/path/to/agent-workspace browser-harness domain-skills export --output /path/to/agent-external-skills
+```
+
+Then add the **output directory** to that agent's configured external skill
+search paths (for Hermes: `skills.external_dirs`), and rescan/restart the
+agent if required by its loader. This creates one named `SKILL.md` entry per
+source workflow and keeps the original files untouched. Use
+`--update-managed` after a source skill changes; edited or unrelated target
+files are never overwritten. Removed source skills are **not automatically
+deleted from the output**. Review agent-written/web-derived Markdown before
+enabling it as an agent instruction.
+
+This makes skills discoverable; whether an LLM chooses and uses them correctly
+is a **separate evaluation**. No browser daemon or API credential is needed
+for the export.
+
 ## Recording Consent
 
 Run `browser-harness recordings`. If it reports `(default)`, ask the user once:

@@ -57,6 +57,8 @@ Commands:
   browser-harness auth status         show Browser Use Cloud auth state
   browser-harness auth logout         remove stored Browser Use Cloud auth
   browser-harness skill               print the browser-harness skill text
+  browser-harness domain-skills export --output DIR [--update-managed]
+                                    export per-site SKILL.md entries for agent skill indexes
   browser-harness recordings          show recording status and recent sessions
   browser-harness recordings --latest   print the newest recording directory
   browser-harness recordings enable   save browser actions locally by default
@@ -333,6 +335,9 @@ def _run(args):
             sys.exit(2)
         _print_skill()
         return
+    if args and args[0] == "domain-skills":
+        from . import domain_skills
+        sys.exit(domain_skills.run_cli(args[1:]))
     if args and args[0] == "recordings":
         rest = args[1:]
         if rest == ["--latest"]:
