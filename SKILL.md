@@ -271,8 +271,9 @@ If you get stuck on a browser mechanic, check https://github.com/browser-use/bro
   waits up to 10 seconds for an available scope instead of immediately failing
   when eight scopes are active. Waiting requests are admitted by descending
   operator-assigned priority (0–9), then FIFO. At most 32 waiters are allowed;
-  timed-out/cancelled waiters are removed. Default wait is zero and preserves
-  fail-fast capacity behavior. The daemon never preempts running tasks or
+  timed-out waiters and disconnected waiting CLI processes are removed
+  before admission. Default wait is zero and preserves fail-fast capacity
+  behavior. The daemon never preempts running tasks or
   accesses foreign tabs to free capacity. These settings assume a trusted
   operator assigns meaningful priorities; this is **admission support**, not a
   security/authorization policy or an autonomous whole-system S3 controller.

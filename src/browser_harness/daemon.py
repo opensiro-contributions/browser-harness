@@ -827,9 +827,48 @@ async def serve(d):
         try:
             line = await reader.readline()
             if not line: return
-            resp = await d.handle(json.loads(line))
-            writer.write((json.dumps(resp, default=str) + "\n").encode())
-            await writer.drain()
+            req = json.loads(line)
+            # An opt-in capacity wait must stop when its CLI caller vanishes.
+            # Otherwise an abandoned waiter can later consume a new Chrome
+            # context with nobody left to dispose it. Normal IPC remains intact.
+            waiting = req.get("meta") == "begin_owned_target" and req.get("wait_seconds", 0)
+            if waiting:
+                operation = asyncio.create_task(d.handle(req))
+                disconnected = asyncio.create_task(reader.read(1))
+                try:
+                    done, _ = await asyncio.wait(
+                        {operation, disconnected}, return_when=asyncio.FIRST_COMPLETED,
+                    )
+                    if disconnected in done:
+                        if not operation.done():
+                            operation.cancel()
+                            try:
+                                await operation
+                            except asyncio.CancelledError:
+                                pass
+                        else:
+                            completed = operation.result()
+                            # If disconnect and admission raced, explicitly
+                            # dispose any scope already acquired.
+                            if isinstance(completed, dict) and "owned_target" in completed:
+                                await d.scopes.end(completed["owned_target"]["scope_id"])
+                        return
+                    resp = await operation
+                finally:
+                    disconnected.cancel()
+                    try:
+                        await disconnected
+                    except asyncio.CancelledError:
+                        pass
+            else:
+                resp = await d.handle(req)
+            try:
+                writer.write((json.dumps(resp, default=str) + "\n").encode())
+                await writer.drain()
+            except (OSError, ConnectionError):
+                if waiting and isinstance(resp, dict) and "owned_target" in resp:
+                    await d.scopes.end(resp["owned_target"]["scope_id"])
+                raise
         except Exception as e:
             log(f"conn: {e}")
             try:
