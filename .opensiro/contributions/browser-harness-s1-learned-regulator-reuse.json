@@ -18,15 +18,15 @@
     "reviewed_at": "2026-09-18",
     "assessed_source_revision": "afbcc381b963040c19627d788e40c7e7663171ee"
   },
-  "work_state": "RESEARCH",
-  "next_action": "Reproduce the source-pinned baseline, then pre-register and run actual agent+browser matched cold/learned/ablated trials. Do not implement a product feature or propose a fork-local/external PR until a material new user outcome and original-native gap are demonstrated. Stop with EVIDENCE_INSUFFICIENT/NO_QUALIFIED_IMPROVEMENT when evidence fails.",
+  "work_state": "BLOCKED",
+  "next_action": "EVIDENCE_INSUFFICIENT / BLOCKED_WITH_HANDOFF: native Browser Harness and a disposable real-Chromium UI/URL mechanism were verified, but no autonomous agent discovery, model-driven cold/learned/ablated trials or end-to-end material feature delta was established. A lawful, authenticated, independently executable agent runtime is required to perform the preregistered P1-P5 task trials. Do not publish fork-local or original PR, do not substitute hand-scripted controls, do not reclassify ASSESSMENT_DERIVED.",
   "source_revision": "8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
   "native_evidence": [],
   "work_branches": [],
   "external_prs": [],
-  "last_event_id": "2026-11-16T153043Z--browser-harness-s1-learned-regulator-plan",
+  "last_event_id": "2026-11-16T155534Z--browser-harness-s1-mechanism-only-agent-blocked",
   "research_contract": {
-    "research_status": "NOT_EXECUTED",
+    "research_status": "PARTIAL_NATIVE_MECHANISM_VERIFIED_AGENT_TRIALS_BLOCKED",
     "objective": "Evaluate whether Browser Harness S1 itself learns a materially different browser-task regulator from a real failed task, legitimately saves it in an agent-editable extension surface, and uses it in an independent later invocation to close the same disturbance class.",
     "baseline": "At the pinned source, BH_DOMAIN_SKILLS=1 and goto_url can surface existing site-skill filenames, and agent_helpers.py can be loaded. This is existing functionality, not a new feature; two domain-skill unit tests and an Expedia domain skill do not establish autonomous learning or downstream user benefit.",
     "actor_task_output": "An independent agent is given a browser-only task to complete a date-constrained search in a disposable local interactive web app and report the exact normalized results identifier and dates. The observable outcome is correct completion within a fixed action/time budget without changing another tab.",
@@ -55,6 +55,42 @@
       "Show persisted artifact, loader visibility and later use in distinct invocation, with independent read-back of correct user result.",
       "Distinguish outcome improvement from mere generation of a Markdown file, test double success, convenience helper or faster no-op."
     ],
-    "exit_gate": "MATERIAL_DELTA_SUPPORTED is possible only with a demonstrated new or materially more reliable native user/agent task and an independently evidenced unserved need. Otherwise DELTA_PENDING or NO_MATERIAL_DELTA, retain findings with no product PR. An S1=A baseline and exploratory note never imply an S finding, a canonical re-assessment or S1 autonomy grade change."
+    "exit_gate": "MATERIAL_DELTA_SUPPORTED is possible only with a demonstrated new or materially more reliable native user/agent task and an independently evidenced unserved need. Otherwise DELTA_PENDING or NO_MATERIAL_DELTA, retain findings with no product PR. An S1=A baseline and exploratory note never imply an S finding, a canonical re-assessment or S1 autonomy grade change.",
+    "final_disposition": "EVIDENCE_INSUFFICIENT",
+    "agent_trials_executed": 0,
+    "native_mechanism": {
+      "source_revision": "8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
+      "unit_tests": {
+        "passed": 273,
+        "skipped": 1
+      },
+      "browser": "HeadlessChrome/151.0.7922.34 (disposable local, CDP)",
+      "test_fixture_sha256": "dd6d6e93d9e7c4fbb534f60346b3b53619dff065b3fc54a0c12d314c3744d237",
+      "is_user_task_improvement_proof": false,
+      "scripted_ui": {
+        "feedback": "Dates were not retained; search not submitted",
+        "result_found": false
+      },
+      "scripted_url": {
+        "destination": "Helsinki",
+        "start": "2026-12-02",
+        "end": "2026-12-05",
+        "server_result": "VERIFIED",
+        "server_result_id": "d6df8719e249",
+        "independent_hash_match": true
+      },
+      "observed_tab_count": {
+        "before": 2,
+        "after": 2
+      },
+      "manually_seeded_skill_control": {
+        "after_restart_with_file": [
+          "marker.md"
+        ],
+        "ablated_without_file": null,
+        "domain_skills_flag_disabled": null
+      },
+      "limits": "Explicit hand-scripted tester actions and manually seeded marker, not agent learning, real-user benefit, five independent replicates or runtime ownership isolation."
+    }
   }
 }

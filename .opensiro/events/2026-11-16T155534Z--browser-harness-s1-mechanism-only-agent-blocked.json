@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "id": "2026-11-16T155534Z--browser-harness-s1-mechanism-only-agent-blocked",
+  "recorded_at": "2026-11-16T15:55:34Z",
+  "actor": "OpenSiro ChatGPT agent (source-pinned investigation)",
+  "kind": "EXPERIMENT_BLOCKER",
+  "contribution_id": "browser-harness-s1-learned-regulator-reuse",
+  "decision": "EVIDENCE_INSUFFICIENT_BLOCKED_WITH_HANDOFF",
+  "evidence_urls": [
+    "https://github.com/browser-use/browser-harness/blob/8ec26f6974015a78eaf5494fe35bb9ba1f6b3598/src/browser_harness/helpers.py",
+    "https://github.com/browser-use/browser-harness/blob/8ec26f6974015a78eaf5494fe35bb9ba1f6b3598/tests/unit/test_helpers.py",
+    "https://github.com/browser-use/browser-harness/pull/218",
+    "https://github.com/opensiro/vsm-harness-index/blob/854c6e5441709b014c01f803c23311fdf366a354/experiments/self-organizing-autonomy/notes/browser-harness-s1-learning.md",
+    "https://github.com/opensiro/upstream/blob/main/PROTOCOL.md"
+  ],
+  "summary": "Real native Browser Harness at source SHA 8ec26f6 completed a disposable Chromium 151 scripted mechanism smoke: date-picker UI returned an explicit failure; URL-backed search returned independently verified id d6df8719e249; manually planted domain-skill marker was discoverable in a new native CLI process and absent under ablation/flag-off. Full native unit suite 273 passed, 1 skipped. No separate model-driven agent trial succeeded: independent Codex runner returned 403 unsupported_country_region_territory on authentication; no circumvention was attempted. The seven-phase preregistered learned-regulator study is not complete, no endogenous learning, fresh-context task success or material capability delta can be claimed. Block, do not publish a product PR.",
+  "fixture_sha256": "dd6d6e93d9e7c4fbb534f60346b3b53619dff065b3fc54a0c12d314c3744d237",
+  "fixture_source": "#!/usr/bin/env python3\n\"\"\"Disposable local task fixture (mechanism smoke only; not autonomous S1 evidence).\"\"\"\nimport hashlib\nfrom datetime import date\nfrom http.server import BaseHTTPRequestHandler, ThreadingHTTPServer\nfrom urllib.parse import parse_qs, urlparse\nfrom html import escape\nPORT = 18791\nclass Handler(BaseHTTPRequestHandler):\n    def do_GET(self):\n        u = urlparse(self.path)\n        q = parse_qs(u.query)\n        dest = q.get(\"destination\",[\"\"])[0]\n        start = q.get(\"startDate\",[\"\"])[0]\n        end = q.get(\"endDate\",[\"\"])[0]\n        valid = False\n        try:\n            valid = bool(dest.strip()) and date.fromisoformat(start) < date.fromisoformat(end)\n        except ValueError:\n            pass\n        if u.path == \"/Hotel-Search\" and valid:\n            normalized = dest.lower().strip()+\"|\"+start+\"|\"+end\n            token=hashlib.sha256(normalized.encode()).hexdigest()[:12]\n            body=f\"\"\"<!doctype html><title>Search Results</title><h1 id=\"search-result\">VERIFIED</h1><div id=\"result-id\">{token}</div><div id=\"dates\">{escape(start)} — {escape(end)}</div><div id=\"destination\">{escape(dest)}</div>\"\"\"\n        else:\n            body=\"\"\"<!doctype html><title>Task Fixture</title><h1>Date-constrained search</h1>\n            <p>Complete a hotel search for a destination and two dates.</p>\n            <form id=\"search\"><input id=\"destination\" placeholder=\"destination\"/>\n            <input id=\"start\" type=\"date\"/><input id=\"end\" type=\"date\"/>\n            <button id=\"submit\" type=\"submit\">Search</button></form>\n            <div id=\"feedback\"></div>\n            <script>\n            // Synthetic failure: each date selection is dropped by the widget during submission.\n            document.querySelector('#search').addEventListener('submit', e=>{\n              e.preventDefault();\n              document.querySelector('#start').value = '';\n              document.querySelector('#end').value = '';\n              document.querySelector('#feedback').textContent = 'Dates were not retained; search not submitted';\n            });\n            </script>\"\"\"\n        encoded=body.encode()\n        self.send_response(200);self.send_header(\"Content-Type\",\"text/html; charset=utf-8\");self.send_header(\"Content-Length\",str(len(encoded)));self.end_headers()\n        self.wfile.write(encoded)\n    def log_message(self,*args): pass\nif __name__==\"__main__\":\n    ThreadingHTTPServer((\"127.0.0.1\",PORT),Handler).serve_forever()\n",
+  "native_scripted_observations": {
+    "source_revision": "8ec26f6974015a78eaf5494fe35bb9ba1f6b3598",
+    "unit_tests": {
+      "passed": 273,
+      "skipped": 1
+    },
+    "browser": "HeadlessChrome/151.0.7922.34 (disposable local, CDP)",
+    "test_fixture_sha256": "dd6d6e93d9e7c4fbb534f60346b3b53619dff065b3fc54a0c12d314c3744d237",
+    "is_user_task_improvement_proof": false,
+    "scripted_ui": {
+      "feedback": "Dates were not retained; search not submitted",
+      "result_found": false
+    },
+    "scripted_url": {
+      "destination": "Helsinki",
+      "start": "2026-12-02",
+      "end": "2026-12-05",
+      "server_result": "VERIFIED",
+      "server_result_id": "d6df8719e249",
+      "independent_hash_match": true
+    },
+    "observed_tab_count": {
+      "before": 2,
+      "after": 2
+    },
+    "manually_seeded_skill_control": {
+      "after_restart_with_file": [
+        "marker.md"
+      ],
+      "ablated_without_file": null,
+      "domain_skills_flag_disabled": null
+    },
+    "limits": "Explicit hand-scripted tester actions and manually seeded marker, not agent learning, real-user benefit, five independent replicates or runtime ownership isolation."
+  },
+  "agent_auth_error_code": "403 unsupported_country_region_territory",
+  "agent_runs": {
+    "cold": 0,
+    "learning": 0,
+    "learned": 0,
+    "ablated": 0
+  },
+  "phase_results": {
+    "P0": "PARTIAL_PASS_NATIVE_BASELINE",
+    "P1": "BLOCKED_NO_AGENT_MODEL",
+    "P2": "BLOCKED_NO_AGENT_MODEL",
+    "P3": "MECHANISM_ONLY_MANUAL_MARKER",
+    "P4": "BLOCKED_NO_AGENT_MODEL",
+    "P5": "MECHANISM_ONLY_ABLATION",
+    "P6": "EVIDENCE_INSUFFICIENT"
+  },
+  "next_action": "EVIDENCE_INSUFFICIENT / BLOCKED_WITH_HANDOFF: native Browser Harness and a disposable real-Chromium UI/URL mechanism were verified, but no autonomous agent discovery, model-driven cold/learned/ablated trials or end-to-end material feature delta was established. A lawful, authenticated, independently executable agent runtime is required to perform the preregistered P1-P5 task trials. Do not publish fork-local or original PR, do not substitute hand-scripted controls, do not reclassify ASSESSMENT_DERIVED."
+}
