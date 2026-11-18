@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "20261118T170155Z--browser-harness-roadmap-s3-evidence",
+  "recorded_at": "2026-11-18T17:01:55.981Z",
+  "actor": "AI-assisted OpenSiro Upstream operator",
+  "kind": "CHECKPOINT",
+  "decision": "BROWSER_HARNESS_ROADMAP_UPDATED_PLAN_ONLY_NEEDS_EVIDENCE",
+  "evidence_urls": [
+    "https://github.com/browser-use/browser-harness/commit/4cccf3b8daf992227a6c9019ffbce5f7a2844280",
+    "https://github.com/browser-use/browser-harness/issues/582",
+    "https://github.com/browser-use/browser-harness/pull/760",
+    "https://github.com/browser-use/browser-harness/pull/846",
+    "https://github.com/browser-use/browser-harness/pull/911",
+    "https://github.com/browser-use/browser-harness/pull/1034",
+    "https://github.com/opensiro-contributions/browser-harness/blob/opensiro/meta/.opensiro/contributions/browser-harness-s3-owned-scope-priority-admission.json",
+    "https://github.com/opensiro-contributions/browser-harness/commit/ef5c5bcd92196d33a5b5463a64cfc20f0363895e",
+    "https://github.com/opensiro/vsm-harness-index/blob/d7d07e2f6db17d8ca9bc6c9c6c6d07892c611e1d/assessments/br/browser-harness.md"
+  ],
+  "next_action": "Updated existing plan-only Browser Harness S3 case; source #582 incident and open PR/fork experiment overlap reviewed; native and real Chrome/cost/composed S3 closure still unproved; no public action or code changes."
+}
