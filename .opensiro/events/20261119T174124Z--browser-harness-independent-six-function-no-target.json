@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "20261119T174124Z--browser-harness-independent-six-function-no-target",
+  "recorded_at": "2026-11-19T17:41:24Z",
+  "actor": "AI-assisted OpenSiro Upstream operator",
+  "kind": "CHECKPOINT",
+  "decision": "BROWSER_HARNESS_INDEPENDENT_SIX_FUNCTION_NO_GO_NO_QUALIFIED_C_TARGET_DECISION_READY",
+  "scope": "fork-local plan-only existing case; no original/fork public Issue, PR, comment, or code publication",
+  "original_repository": "browser-use/browser-harness",
+  "original_head": "fe4a2cd3dd308e8de929621e64e7f284d7a124d7",
+  "accepted_index_commit": "394ce776e6945115891b8f7cc459f5a7f7d7aa39",
+  "accepted_review_ref": "afbcc381b963040c19627d788e40c7e7663171ee",
+  "case_id": "browser-resource-control-20261117",
+  "proposal_stage_decision": "NO_GO",
+  "target_transition": "NO_QUALIFIED_C_TARGET",
+  "research_disposition": "DECISION_READY",
+  "native_validation": "NOT_RUN",
+  "structural_validation": {
+    "command": "python3 validate_capability_roadmap.py <case-dir>",
+    "result": "PASS (not semantic review)",
+    "protocol_ref": "4db2e1cd8666afd4981afb6c2270c37e96c36ead"
+  },
+  "historic_comparison": "Previous conditional S3 PLAN_ONLY / NEEDS_EVIDENCE has no terminal proposal-stage decision; new scoped no-target decision supersedes as current case verdict, without erasing old Git history.",
+  "evidence_urls": [
+    "https://github.com/opensiro-contributions/browser-harness/commit/8b93ce28d42734b84cb98d7c2752202a16254558",
+    "https://github.com/browser-use/browser-harness/commit/fe4a2cd3dd308e8de929621e64e7f284d7a124d7",
+    "https://github.com/opensiro/vsm-harness-index/blob/394ce776e6945115891b8f7cc459f5a7f7d7aa39/assessments/br/browser-harness.md",
+    "https://github.com/browser-use/browser-harness/issues/375",
+    "https://github.com/browser-use/browser-harness/issues/582",
+    "https://github.com/browser-use/browser-harness/pull/1022",
+    "https://github.com/browser-use/browser-harness/pull/1025",
+    "https://github.com/browser-use/browser-harness/pull/1039"
+  ],
+  "next_action": "No C implementation; preserve original-native PRs/Issues. Only reopen after lawful first-party decisive owner, effect, task return and matched native baseline evidenced. Publication separate exact approval."
+}
