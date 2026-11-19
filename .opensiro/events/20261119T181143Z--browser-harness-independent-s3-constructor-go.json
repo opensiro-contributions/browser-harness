@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "20261119T181143Z--browser-harness-independent-s3-constructor-go",
+  "recorded_at": "2026-11-19T18:11:43Z",
+  "actor": "AI-assisted OpenSiro Upstream operator",
+  "kind": "CHECKPOINT",
+  "decision": "BROWSER_HARNESS_INDEPENDENT_S3_C_CONSTRUCTOR_PROPOSAL_GO_NEEDS_EVIDENCE",
+  "original_repository": "browser-use/browser-harness",
+  "original_head": "fe4a2cd3dd308e8de929621e64e7f284d7a124d7",
+  "accepted_index_commit": "394ce776e6945115891b8f7cc459f5a7f7d7aa39",
+  "accepted_review_ref": "afbcc381b963040c19627d788e40c7e7663171ee",
+  "case_id": "browser-resource-control-20261117",
+  "target_transition": "S3=— -> S3=C",
+  "proposal_stage_decision": "GO",
+  "research_disposition": "NEEDS_EVIDENCE",
+  "validation_state": "NOT_RUN",
+  "cost_status": "NOT_MEASURED",
+  "structural_validation": {
+    "script": "opensiro/upstream/scripts/validate_capability_roadmap.py",
+    "source_ref": "4db2e1cd8666afd4981afb6c2270c37e96c36ead",
+    "result": "PASS",
+    "scope": "structural only, not semantic validation"
+  },
+  "independent_first_pass_evidence": "independent-browser-harness-rerun-20261119-b/INDEPENDENT_VERDICT_BEFORE_HISTORY.md in isolated operator workspace (not published)",
+  "historical_comparison": "Prior 2026-11-19 NO_GO / NO_QUALIFIED_C_TARGET / DECISION_READY retained at c6df76d4; new source-first review proposes a complete opt-in S3 decision/lease/feedback C construction with tests and cost unrun.",
+  "evidence_urls": [
+    "https://github.com/browser-use/browser-harness/commit/fe4a2cd3dd308e8de929621e64e7f284d7a124d7",
+    "https://github.com/opensiro/vsm-harness-index/blob/394ce776e6945115891b8f7cc459f5a7f7d7aa39/assessments/br/browser-harness.md",
+    "https://github.com/browser-use/browser-harness/issues/375",
+    "https://github.com/browser-use/browser-harness/issues/582",
+    "https://github.com/browser-use/browser-harness/pull/1022",
+    "https://github.com/browser-use/browser-harness/pull/1025",
+    "https://github.com/browser-use/browser-harness/pull/1039",
+    "https://github.com/opensiro-contributions/browser-harness/commit/c6df76d4eee6190a65623c85f76147f0ba7f87c1"
+  ],
+  "next_action": "No code or public GitHub activity; optional future independent engineering approval may trigger source-native validation and comparison against serial host queue/remote isolation. Public fork or original publication separately gated."
+}
