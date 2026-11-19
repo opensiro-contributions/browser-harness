@@ -1,16 +1,14 @@
-# Browser Harness — S3 capability roadmap case
+# Browser Harness — independent six-function capability roadmap
 
-**PLAN_ONLY / NEEDS_EVIDENCE, 2026-11-18.** One source-pinned, fork-local research case on \`opensiro/meta\`; no public GitHub Issue and no shipped S3=C function.
+**Current fork-local outcome (2026-11-19):** PLAN_ONLY · `NO_GO` · `NO_QUALIFIED_C_TARGET` · `DECISION_READY` · native validation `NOT_RUN`.
 
-1. [Human decision — issue.md](issue.md): why Opensiro, full accepted Index starting vector, real wrong-tab user need, priorities, native alternatives and stop.
-2. [AI/developer contract — constructor-sufficiency.md](constructor-sufficiency.md): current source and PR overlap, five-link S3 constructor, proposed (not executed) acceptance, authority and falsification.
-3. [Capability Roadmap Receipt — roadmap.md](roadmap.md): evidence pins, function ownership and plan-only result.
-4. [Unsent comment draft — maintainer-comment-draft.md](maintainer-comment-draft.md): optional reply to existing [original issue #582](https://github.com/browser-use/browser-harness/issues/582); **NOT SENT**.
+- [Human-facing roadmap — issue.md](issue.md): why OpenSiro, historical six-function Index vector, observed source-native boundaries, and scoped decision.
+- [AI/developer technical contract — constructor-sufficiency.md](constructor-sufficiency.md): pinned source and open PR heads, Track A and independent Track B alternatives, falsifiers and future tests.
+- [Canonical receipt — roadmap.md](roadmap.md): exact source and assessment pins, ownership dispositions, P0/P1/P2 and separate proposal/research statuses.
+- [Historical unsent maintainer draft](maintainer-comment-draft.md): **NOT SENT**, not adopted by this new decision.
 
-**Historical Index:** [accepted 2026-09-18 general assessment](https://github.com/opensiro/vsm-harness-index/blob/d7d07e2f6db17d8ca9bc6c9c6c6d07892c611e1d/assessments/br/browser-harness.md), \`S1=A · S2=C · S3=— · S3*=— · S4=— · S5=—\`. [PR #3219](https://github.com/opensiro/vsm-harness-index/pull/3219) remains an unmerged proposal, not a grade change. [Original main@4cccf3b8](https://github.com/browser-use/browser-harness/commit/4cccf3b8daf992227a6c9019ffbce5f7a2844280) observed 2026-11-18.
+**Current source:** [browser-use/browser-harness@fe4a2cd3dd308e8de929621e64e7f284d7a124d7](https://github.com/browser-use/browser-harness/commit/fe4a2cd3dd308e8de929621e64e7f284d7a124d7) (2026-11-19); **accepted historical Index** [pinned assessment](https://github.com/opensiro/vsm-harness-index/blob/394ce776e6945115891b8f7cc459f5a7f7d7aa39/assessments/br/browser-harness.md), `A C — — — —` reviewed 2026-09-18.
 
-**Reuse, do not duplicate:** [existing independent OpenSiro S3 experimental contribution](https://github.com/opensiro-contributions/browser-harness/blob/opensiro/meta/.opensiro/contributions/browser-harness-s3-owned-scope-priority-admission.json); previous [integration commit](https://github.com/opensiro-contributions/browser-harness/commit/ef5c5bcd92196d33a5b5463a64cfc20f0363895e) depends on unmerged original PR #911. Prior unit and fake-CDP IPC tests do not prove real Chrome user value or independent autonomous S3.
+**Prior decision (comparison only, viewed after independent review):** [fork metadata commit bc5e0fd](https://github.com/opensiro-contributions/browser-harness/commit/bc5e0fd8128af7637e074430fe0a93f25a49bfef) contained a conditional S3 construction, `PLAN_ONLY / NEEDS_EVIDENCE`. Current neutral whole-repository review found no qualified complete incremental C target at the declared first-party scope. This does **not** overrule original maintainers or invalidate separate tab-safety, feedback and script-replay fixes.
 
-Owner control remains \`ACTIVE / ALLOW\`. No fork public Issue (\`has_issues=false\`), external maintainer contact, code changes, fresh native tests or cost savings established by this update. Original code/PR and Index remain authoritative.
-
-**Provenance:** [historical pre-migration example](https://github.com/opensiro/upstream/blob/c870a6a756bea774012c48877ad5a12aa991e656/docs/examples/browser-harness-roadmap-20261117.md), updated in place without a version-postfix filename.
+**Authority:** verified matching OpenSiro fork; `opensiro/meta` state `ALLOW / ACTIVE` at prewrite observation. Update is documentation metadata only: no changes to product code/default branch, original, accepted Index, existing contribution records or repository issues. **No fork GitHub Issue, external publication, original Issue/PR/comment or native test claimed.**
