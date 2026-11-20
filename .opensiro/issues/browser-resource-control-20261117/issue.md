@@ -1,78 +1,112 @@
-# Browser Harness — composable current browser resource control (Human)
+# Browser Harness — S3=— -> S3=C (OpenSiro fork-local Human roadmap)
 
 **PLAN_ONLY · proposal-stage GO · research NEEDS_EVIDENCE · DRAFT — NOT PUBLISHED**
 
-**Proposal:** Make it possible to supply an autonomous S3 manager that chooses which of several current browser tasks should be admitted locally, deferred, or assigned an explicitly authorized remote lane; enforce its decision and report later real actions.
+**One-sentence proposal:** At existing BU_NAME, current-tab and cloud provision/stop seams, add an optional bounded task-admission decision with an owned resource snapshot, capability-limited lease and proven task-action/release feedback.
 
-**Canonical case decision:** [roadmap.md](roadmap.md). **Technical AI/developer handoff:** [constructor-sufficiency.md](constructor-sufficiency.md).
+**Canonical decision receipt:** [roadmap.md](roadmap.md) — source of truth for historical assessment, canonical target, P0/P1/P2, decision and research state.
+**Technical companion:** [constructor-sufficiency.md](constructor-sufficiency.md) — source-native controls and future test contract.
+**Working fork:** opensiro-contributions/browser-harness on opensiro/meta.
+**Case:** .opensiro/issues/browser-resource-control-20261117/.
 
-## 1. Why Opensiro and the historical accepted VSM baseline
+## 1. Why Opensiro and central accepted VSM assessment
 
-OpenSiro studies whether VSM-informed first-party constructors can make multi-agent harnesses cheaper and safer to develop and integrate. This is a research proposition, **not a proven saving** or a demand that Browser Use adopt VSM.
+OpenSiro explores whether VSM-informed organizational construction helps agent harness engineering. It is a **research hypothesis**, not product certification, cost savings or a maintainer adoption request.
 
-**Accepted historical general Index (NOT a new HEAD assessment):** S1=A · S2=C · S3=— · S3*=— · S4=— · S5=—. [Pinned accepted assessment](https://github.com/opensiro/vsm-harness-index/blob/394ce776e6945115891b8f7cc459f5a7f7d7aa39/assessments/br/browser-harness.md), blob 7522febc97e2eff75e78ad781cec9ac64f480a94, 2026-09-18 at afbcc381b963040c19627d788e40c7e7663171ee; Profile 0.2.2, Methodology 0.3.1. Current original [HEAD fe4a2cd3dd308e8de929621e64e7f284d7a124d7](https://github.com/browser-use/browser-harness/commit/fe4a2cd3dd308e8de929621e64e7f284d7a124d7) observed 2026-11-19. Assessment is 62 days old and a separate Index recheck is advised, not required for this plan.
+### Central starting point — accepted Index, not the target
 
-**Assessed boundary:** Standard Browser Harness CLI/daemon/helpers/skill/MCP and optional local/cloud browser control used by external autonomous model agents. An external host's work planning, Browser Use private cloud service, and the original repository's CI/maintainer organization are not silently included. These letters classify *ownership*, not feature quality or maturity.
+> **ACCEPTED HISTORICAL INDEX — not current-HEAD grades or proposed after-states**
+>
+> **S1=A · S2=C · S3=— · S3*=— · S4=— · S5=—**
+>
+> [Pinned accepted Index assessment](https://github.com/opensiro/vsm-harness-index/blob/394ce776e6945115891b8f7cc459f5a7f7d7aa39/assessments/br/browser-harness.md); blob SHA 7522febc97e2eff75e78ad781cec9ac64f480a94; historical review ref afbcc381b963040c19627d788e40c7e7663171ee; reviewed 2026-09-18; historical Profile/Skills versions retained in the canonical [roadmap.md](roadmap.md).
 
-| Function and plain-language role | Historical Index state | Current first-party operating relation | Selection |
+**Repository-wide audit:** The present same-case v0.18.2 follow-up used browser-use/browser-harness original HEAD 22ecf8545d67c474fa024643632d70af28b7fa0e, checked first-party source at [SKILL.md](https://github.com/browser-use/browser-harness/blob/22ecf8545d67c474fa024643632d70af28b7fa0e/SKILL.md) and [src/browser_harness/daemon.py](https://github.com/browser-use/browser-harness/blob/22ecf8545d67c474fa024643632d70af28b7fa0e/src/browser_harness/daemon.py), original repository https://github.com/browser-use/browser-harness/issues/1022 (OPEN, agent-owned tabs). Historical fork case references other issue proposals, not assumed merged; original PR #626 CLOSED_UNMERGED (daemon lifecycle hardening)., prior accepted assessment and published protocol. The system in focus is the installed first-party agent harness and its supported components; separate host provider, original maintainer policy, repo CI and external services are not automatically in-boundary autonomous owners. Prior fork-case evidence was opened only after the source-first #58 [checkpoint](https://github.com/opensiro/upstream/issues/58#issuecomment-7047329680). This was a bounded source review, not exhaustive source classification or a fresh accepted Index grade.
+
+| Function / plain-language role | Historical Index state | Current source-backed owner/closure | Candidate / justified no-target / uncertainty and rank |
 | --- | --- | --- | --- |
-| **S1 · Operations** — execute browser tasks | A | Agent chooses browser actions and sees results through [helpers](https://github.com/browser-use/browser-harness/blob/fe4a2cd3dd308e8de929621e64e7f284d7a124d7/src/browser_harness/helpers.py) | ALREADY_A; no new C |
-| **S2 · Coordination** — reduce tab interference | C | [SKILL](https://github.com/browser-use/browser-harness/blob/fe4a2cd3dd308e8de929621e64e7f284d7a124d7/SKILL.md) prescribes serial local or isolated cloud lanes; original [PR #1022](https://github.com/browser-use/browser-harness/pull/1022) is still open | ALREADY_C; reuse |
-| **S3 · Current management** — allocate resources and priorities for the whole | — | Daemon/host can run local and cloud tasks, but the discretionary cross-task manager interface is missing | **P0: S3→C** |
-| **S3* · Complementary audit** — check reality independently | — | Recordings and telemetry are not separate corrective judgment | DEFER |
-| **S4 · Outside-and-future adaptation** — respond to evolving environment | — | Agent-created domain recipes and open script-drift PR are not a prospective S3-coupled decision loop | DEFER |
-| **S5 · Ultimate identity and policy** — authorized higher-order direction | — | Chrome approval and cloud budget remain with user/host, not an autonomous harness governor | Parent boundary; no target |
+| **S1 · Operations** | A | First-party SKILL.md describes one mutable attached tab and required serialization, named daemon fallback and cloud browser isolation. Daemon has session-scoped locks; deterministic tab isolation already covers S2, not autonomous whole-task admission. | ALREADY_A — external autonomous agent chooses browser operations with first-party helpers and receives page observations; no new C selected |
+| **S2 · Coordination** | C | First-party SKILL.md describes one mutable attached tab and required serialization, named daemon fallback and cloud browser isolation. Daemon has session-scoped locks; deterministic tab isolation already covers S2, not autonomous whole-task admission. | ALREADY_C — serial local lane or separate remote browsers regulates observed inter-agent tab conflicts; #1022 OPEN PR improves owned-tab isolation but does not create S3 management |
+| **S3 · Current management** | — | First-party SKILL.md describes one mutable attached tab and required serialization, named daemon fallback and cloud browser isolation. Daemon has session-scoped locks; deterministic tab isolation already covers S2, not autonomous whole-task admission. | P0 conditional: One-tab collision safety and a separate optional resource allocation decision are different functions. A lock alone does not give an autonomous whole-task priority choice; proof is needed that enforcement covers all relevant browser entrypoints. |
+| **S3* · Independent review** | — | S1 agent browsing and S2 tab isolation are already covered. The conditional S3 target is whole-task competing resource allocation; S3* audit and S4 foresight have no separate verified candidate, S5 remains user policy. | DEFER — recorder/video/telemetry do not independently challenge S1 claims and return a corrective judgment to S3; not a minimal first construction |
+| **S4 · Future adaptation** | — | S1 agent browsing and S2 tab isolation are already covered. The conditional S3 target is whole-task competing resource allocation; S3* audit and S4 foresight have no separate verified candidate, S5 remains user policy. | DEFER — agent-written domain skills and OPEN #1025 saved-script drift detection do not create an outside-and-future adaptation owner that returns to S3 |
+| **S5 · Identity/policy** | — | Legitimate parent/user controls ultimate policy, approval and publication, not the proposed auditor or controller. | NO_TARGET_PARENT — Chrome consent, cloud budget and ultimate identity legitimately belong to user/host; no intentional product omission inferred from missing source |
 
-A historical absence does not imply a defect. S3* or S4 would need independent authority/return not presently established. Intentional omission is NOT VERIFIED merely because a module is absent. Maintainer request for a new S3 actor is NOT STATED; source issues establish only underlying shared-work pressure.
+**Interpretation:** A, C, P and — denote ownership categories, **not quality ranks**; a historical dash is not proof work is necessary and A is not inferior to C. Unsupported current-HEAD functions stay UNKNOWN rather than silently regraded.
 
-## 2. User/operator outcome and selected C hypothesis
+**Priority rationale:** S1 agent browsing and S2 tab isolation are already covered. The conditional S3 target is whole-task competing resource allocation; S3* audit and S4 foresight have no separate verified candidate, S5 remains user policy. The selected S3 target is the only conditional P0 in this existing case. Utility and actual independent operation remain unmeasured.
+
+**Deliberate exclusions / methodology challenge:** No first-party independent actor has been shown to ship the complete optional link. Do not promote the historical grade or treat a proposed design as installed. No new S5 delegation or additional automatically generated Sx. Separate Profile/Skills review is required for any real classification counterexample.
+
+**Contributor / maintainer interests:** NOT_STATED as approval for this construction. An original Issue is not maintainer acceptance.
+
+## 2. Selected construction hypothesis and operator outcome
 
 **Target transition:** S3=— -> S3=C
-**Proposal-stage decision:** GO
-**Research disposition:** NEEDS_EVIDENCE
 
-[Original #375](https://github.com/browser-use/browser-harness/issues/375) requests simultaneous subagents but reports tab interference; [original #582](https://github.com/browser-use/browser-harness/issues/582) reports erroneous closure of other agents' tabs. Native [SKILL](https://github.com/browser-use/browser-harness/blob/fe4a2cd3dd308e8de929621e64e7f284d7a124d7/SKILL.md) already offers serial local work or independent remote browsers. Those issues show real S2 coordination pressure, **not independently proven demand for S3**.
+**Function-specific disturbance:** Two simultaneous agent browser tasks compete for one mutable attached tab or scarce isolated cloud capacity; specific race is documented in first-party SKILL.
 
-The distinct S3 task is a whole-work choice: given tasks A and B, their commitments, budget and browser constraints, a composed manager may admit A into the local lane and defer B; with explicit cloud budget it could place B on an isolated remote browser. It must have a bounded decision right, an enforced outcome on later browser operations, and feedback about those operations. It cannot create parent permissions or expose someone else's browser tabs.
+**Proposed C capability (P0):** At existing BU_NAME, current-tab and cloud provision/stop seams, add an optional bounded task-admission decision with an owned resource snapshot, capability-limited lease and proven task-action/release feedback.
 
-## 3. Track A original-native work versus Track B on-top
+**Best native operator alternative:** Prefer the documented SKILL serialization, existing named daemon and isolated remote browser when adequate; do not vendor a general scheduler. Native source: [SKILL.md](https://github.com/browser-use/browser-harness/blob/22ecf8545d67c474fa024643632d70af28b7fa0e/SKILL.md) and [src/browser_harness/daemon.py](https://github.com/browser-use/browser-harness/blob/22ecf8545d67c474fa024643632d70af28b7fa0e/src/browser_harness/daemon.py).
 
-| Required S3 property | Track A: shipped and open original work | Track B: proposed minimal additional C |
+**Expected user benefit:** HYPOTHETICAL. HYPOTHETICAL; dynamic priority and constrained cost decisions among browser jobs, not proven faster, cheaper or requested by original maintainers No native implementation or matched benefit test has occurred.
+
+**Architectural sufficiency argument:** The first-party baseline already provides part of the path: First-party SKILL.md describes one mutable attached tab and required serialization, named daemon fallback and cloud browser isolation. Daemon has session-scoped locks; deterministic tab isolation already covers S2, not autonomous whole-task admission. The proposed developer-installed decision owner adds the strictly scoped capability: Choose serialize this task, grant isolated named daemon, defer, or provision an authorized cloud lane while respecting quota and ownership. A lawful effect and later feedback are required: The selected task receives only its scoped browser lane and a later real operation/closure event changes available lane state; unauthorized cross-lane use fails closed. This is a conditional complete design, not a shipped C witness.
+
+## 3. Existing native work versus missing construction
+
+**Track A — native coverage:** SHIPPED first-party source: [SKILL.md](https://github.com/browser-use/browser-harness/blob/22ecf8545d67c474fa024643632d70af28b7fa0e/SKILL.md) and [src/browser_harness/daemon.py](https://github.com/browser-use/browser-harness/blob/22ecf8545d67c474fa024643632d70af28b7fa0e/src/browser_harness/daemon.py). Existing original evidence: https://github.com/browser-use/browser-harness/issues/1022 (OPEN, agent-owned tabs). Historical fork case references other issue proposals, not assumed merged; original PR #626 CLOSED_UNMERGED (daemon lifecycle hardening).. Issue or PR is never treated as deployed simply by title.
+
+**Track B — independent on-top C construction:** At existing BU_NAME, current-tab and cloud provision/stop seams, add an optional bounded task-admission decision with an owned resource snapshot, capability-limited lease and proven task-action/release feedback. Keep the original's native terminology, identities, state and permission checks.
+
+| C-sufficiency requirement | Already present / original status (A) | Smallest conditional first-party delta (B) |
 | --- | --- | --- |
-| Current whole-work view | [admin](https://github.com/browser-use/browser-harness/blob/fe4a2cd3dd308e8de929621e64e7f284d7a124d7/src/browser_harness/admin.py) provisions cloud browsers, daemon tracks attached session; open #1022 proposes scoped tab owners | Opt-in tasks, commitments, capacity, priority and versioned leases, never unauthorized tab enumeration |
-| Decision with alternatives | Host currently serializes or chooses remote manually | First-party legal choices local/defer/remote exposed to independently composed autonomous manager |
-| Effect + return | [daemon](https://github.com/browser-use/browser-harness/blob/fe4a2cd3dd308e8de929621e64e7f284d7a124d7/src/browser_harness/daemon.py) handles IPC/CDP; CLI/MCP have operational results | Enforce lease at browser side-effect boundary and send later action/task status to the SAME manager |
+| Scoped independent owner choice | First-party SKILL.md describes one mutable attached tab and required serialization, named daemon fallback and cloud browser isolation. Daemon has session-scoped locks; deterministic tab isolation already covers S2, not autonomous whole-task admission. | Choose serialize this task, grant isolated named daemon, defer, or provision an authorized cloud lane while respecting quota and ownership. |
+| Enforced effect and later observation | SKILL.md, src/browser_harness/daemon.py provide candidate entrypoints, not a proven new C | The selected task receives only its scoped browser lane and a later real operation/closure event changes available lane state; unauthorized cross-lane use fails closed. |
 
-Do not duplicate [PR #1022](https://github.com/browser-use/browser-harness/pull/1022) owner-safe tabs, [PR #911](https://github.com/browser-use/browser-harness/pull/911) scoped target preflight, or [PR #760](https://github.com/browser-use/browser-harness/pull/760) multiplexing. They address S2 and owner safety, not whole-current resource commitments. [PR #1025](https://github.com/browser-use/browser-harness/pull/1025) is an unmerged script-replay alternative for S4 investigation, not a shipped S3 owner.
+**Distinctness and falsifier:** One-tab collision safety and a separate optional resource allocation decision are different functions. A lock alone does not give an autonomous whole-task priority choice; proof is needed that enforcement covers all relevant browser entrypoints. With manager removed, there must be no independent autonomous whole-current priority choice; an unauthorized lease, bypassable raw CDP action or missing later real-action return defeats the proposed C chain Historic prior decision remains the canonical baseline; no new unrelated function is implied.
 
-## 4. Priorities and minimum sufficiency
+## 4. Priorities and minimum sufficient result
 
-**P0:** Design a first-party opt-in S3 state/options/decision/lease/actual feedback constructor for a developer-provided autonomous actor. **P1:** verify owner scope, parent capacity and cloud authority, atomic server enforcement, actual return, and CLI/MCP compatibility against current and open PR code. **P2:** NONE.
+- **P0:** Opt-in first-party browser-resource-admission API with current workload snapshot, bounded local/defer/authorized-cloud options, developer-composed autonomous S3 decision owner, atomic scoped lease enforcement, and real subsequent browser action/commitment feedback returned to owner
+- **P1:** Establish permitted host-supplied current task commitments and priority envelope; check #1022 and #911 owner scope overlap; add lease/epoch enforcement before opted-in CDP effects; prove later task feedback, CLI/MCP distribution and safe cloud budget; compare simple host queue under matched tasks
+- **P2:** NONE — no second function or obligatory parent-governed mode
 
-**Proposed C-sufficiency verdict:** PROPOSED_C_SUFFICIENT at proposal level, NOT IMPLEMENTED and NOT INDEX-CLASSIFIED. A queue, generic hook, daemon or tab lock alone cannot earn S3=C. Details and falsifiable test scenarios belong in [constructor-sufficiency.md](constructor-sufficiency.md).
+**Proposed C-sufficiency verdict:** PROPOSED_C_SUFFICIENT at a conditional architectural proposal stage only. No native build, cost proof, Index regrade or external consent.
 
-## 5. Acceptance and stop
+## 5. Proposed acceptance and stop gates
 
-**Positive (NOT_RUN):** two concurrent browser tasks, one lane; a manager legitimately admits A/defers B; an alternative manager decision admits B/defers A; a later CDP operation is permitted/denied accordingly and outcome flows back to manager to update commitments. Under explicit cloud authorization a remote option can also be selected.
+**Future positive test:** With two real browser-task requests, verify the installed owner can lawfully choose local serialization versus permitted isolated lane, and the next browser operation plus release shows the choice.
 
-**Negative (NOT_RUN):** wrong/stale/revoked lease, absent autonomous manager, missing cloud grant or expired capacity cannot cause another agent's tab action or paid browser creation. Default non-opt-in use remains unchanged.
+**Future negative test:** No lease, cross-lane ownership mismatch, stale tab, exhausted cloud budget or owner outage blocks forbidden action and preserves existing single-agent behavior.
 
-**Falsifier:** first-party lease/effect/feedback proves impossible, management remains hardcoded FIFO, or a minimal host queue plus documented isolation solves the same operator problem with lower/equal total effort. In that case stop this proposed S3 change even if other original fixes remain worthwhile.
+**Proposed falsifier:** A shipped equivalent C already exists, or native host queue plus isolated remote browsers achieve the same task and owner outcome with lower/equal total engineering and maintenance cost, or safe first-party return cannot be implemented
 
-## 6. Independent paths and permissions
+**Validation state:** NOT_RUN; only document structural validation will be performed on fork-local artifacts, not native tests.
 
-Original maintainers can merge existing safe-tab/remote PRs without an S3 proposal. Profile/Skills discussion requires separate normative evidence; a domain-specific experiment requires its own permission. Current [MIT license](https://github.com/browser-use/browser-harness/blob/fe4a2cd3dd308e8de929621e64e7f284d7a124d7/LICENSE) is readable; further contributor AI/CLA/DCO requirements are UNVERIFIED. OpenSiro fork metadata ALLOW permits this research document, not public fork GitHub Issue or original PR/comment. No paid browser was started.
+## 6. Independent paths
+
+**Original-native contribution:** Prefer the documented SKILL serialization, existing named daemon and isolated remote browser when adequate; do not vendor a general scheduler. Third-party code PR, Issue or comment requires separate owner approval and normal project rules.
+
+**Profile / Skills:** No forced methodology change; raise an independent correction only for a reproducible semantics/ownership conflict.
+
+**Domain fork:** Optional licensed and permission-checked test only, not performed or authorized here.
 
 ## 7. Cost hypothesis
 
-Compare matched tasks, operator permissions, correct browser outcomes, test/integration/review hours, ongoing maintenance and cloud spend between a simple host queue and proposed S3 management. **Cost status: NOT_MEASURED.**
+Matched native A versus optional new B would measure actual engineering, review, integration, runtime and maintenance effort alongside the named operator outcome. **Cost status: NOT_MEASURED.** Cost reduction is not asserted.
 
-## 8. Proposal verdict and handoff
+## 8. Decision / handoff
 
-**Target transition:** S3=— -> S3=C
 **Proposal-stage decision:** GO
+
 **Research disposition:** NEEDS_EVIDENCE
 
-The previous [NO_GO case revision](https://github.com/opensiro-contributions/browser-harness/commit/c6df76d4eee6190a65623c85f76147f0ba7f87c1) was inspected *only after* independently forming this proposal. That review did not establish a qualified C path; this one proposes a bounded full actor→authority→action→return chain and reserves empirical benefit for validation. Both remain traceable. See [canonical roadmap.md](roadmap.md) and [AI contract](constructor-sufficiency.md).
+**Decision reason / next permitted step:** Canonical proposal remains GO / NEEDS_EVIDENCE based on the earlier source-pinned receipt. This v0.18.2 source-first follow-up found One-tab collision safety and a separate optional resource allocation decision are different functions. A lock alone does not give an autonomous whole-task priority choice; proof is needed that enforcement covers all relevant browser entrypoints. and does not claim newly shipped capabilities or five independent isolated chat contexts. Compare the cheapest native alternative, source drift and lawful C feedback before product implementation.
 
-**Disclosure:** AI-assisted plan-only research; no native suite pass, independent human review, new Index classification, implementation or external/public publication claimed.
+**Agent/developer handoff:** [constructor-sufficiency.md](constructor-sufficiency.md) and [roadmap.md](roadmap.md), with reservations and prior-independent checkpoint at [Upstream #58](https://github.com/opensiro/upstream/issues/58#issuecomment-7047108048).
+
+**Rights and publication:** MIT original LICENSE; matched fork opensiro/meta owner state was ACTIVE / ALLOW at preflight; recheck before effect. **No public fork Issue**, original Issue/comment/PR, implementation, changed Index grade or new S5 authority is authorized. PAUSE/STOP must block. This draft is not externally published.
+
+**AI disclosure:** Prepared with AI assistance. No native tests, independent human validation or measured benefit claimed.

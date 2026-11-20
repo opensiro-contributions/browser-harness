@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "20261120T183911Z--v0182-browser-harness-case-template-sync",
+  "recorded_at": "2026-11-20T18:39:11.250Z",
+  "actor": "OpenSiro AI-assisted Upstream #58 bounded source-first follow-up",
+  "kind": "CHECKPOINT",
+  "decision": "SAME_CASE_TEMPLATE_REPAIRED; GO / NEEDS_EVIDENCE unchanged; native NOT_RUN",
+  "original_repository": "browser-use/browser-harness",
+  "original_head_observed": "22ecf8545d67c474fa024643632d70af28b7fa0e",
+  "case_id": "browser-resource-control-20261117",
+  "source_first_checkpoint": "https://github.com/opensiro/upstream/issues/58#issuecomment-7047329680",
+  "validation": "Both v0.18.2 structural and template validators PASS before persistence; native tests NOT_RUN",
+  "publication": "NOT_PUBLISHED",
+  "next_action": "Compare existing named daemon/cloud task admission and original issue #1022 before any implementation"
+}

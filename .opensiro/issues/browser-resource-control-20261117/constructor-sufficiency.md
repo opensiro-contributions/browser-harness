@@ -1,74 +1,96 @@
-# Browser Harness — source-native S3 construction contract (AI/developer)
+# Browser Harness — source-native S3 C-construction technical contract
 
-**PLAN_ONLY · proposal-stage GO · research NEEDS_EVIDENCE · NOT IMPLEMENTED · DRAFT — NOT PUBLISHED**
+**Canonical storage:** opensiro-contributions/browser-harness@opensiro/meta:.opensiro/issues/browser-resource-control-20261117/constructor-sufficiency.md.
+**Level 1 / Human decision Issue:** [issue.md](issue.md).
+**Canonical decision receipt:** [roadmap.md](roadmap.md), authoritative for Index vector, case pins, priority and verdict.
+**Stage:** PLAN_ONLY / HYPOTHESIS, current v0.18.2 template synchronization; **DRAFT — NOT PUBLISHED**. Native validation NOT_RUN.
 
-**Human decision:** [issue.md](issue.md). **Canonical receipt and historical accepted vector:** [roadmap.md](roadmap.md). Do not treat this proposed target as a changed Index assessment.
+## 1. Function-specific construction boundary and methodology checks
+
+**Source and mode boundary:** Original browser-use/browser-harness at current original HEAD 22ecf8545d67c474fa024643632d70af28b7fa0e, first-party entrypoints [SKILL.md](https://github.com/browser-use/browser-harness/blob/22ecf8545d67c474fa024643632d70af28b7fa0e/SKILL.md) and [src/browser_harness/daemon.py](https://github.com/browser-use/browser-harness/blob/22ecf8545d67c474fa024643632d70af28b7fa0e/src/browser_harness/daemon.py). The canonical historical research HEAD remains fe4a2cd3dd308e8de929621e64e7f284d7a124d7; accepted historical Index https://github.com/opensiro/vsm-harness-index/blob/394ce776e6945115891b8f7cc459f5a7f7d7aa39/assessments/br/browser-harness.md reviewed at afbcc381b963040c19627d788e40c7e7663171ee. The supported local first-party runtime and its explicit optional modes are the unit of analysis. Original project's own CI, third-party provider, external management and parent owner are not silently counted as agent functions.
 
 **Target transition:** S3=— -> S3=C
-**Proposal-stage decision:** GO
-**Research disposition:** NEEDS_EVIDENCE
 
-## 1. First-party boundary, function and owner
+**Six-function dependencies (S1/S2/S3/S3*/S4/S5):** S1 agent browsing and S2 tab isolation are already covered. The conditional S3 target is whole-task competing resource allocation; S3* audit and S4 foresight have no separate verified candidate, S5 remains user policy. Reuse historical S1=A · S2=C · S3=— · S3*=— · S4=— · S5=— without changing the Index. Supporting runtime permissions and transport are not themselves autonomous decisions.
 
-Pinned original: [browser-use/browser-harness@fe4a2cd3dd308e8de929621e64e7f284d7a124d7](https://github.com/browser-use/browser-harness/commit/fe4a2cd3dd308e8de929621e64e7f284d7a124d7). This is the standard-distribution browser control layer: Python CLI, CDP helpers, daemon, admin, MCP and skill. External Codex/Claude/Cursor workers are S1 browser actors; private Browser Use Cloud service, an arbitrary host's own manager, and repo CI/maintainer organization are not attributed as already-shipped first-party S3.
+**Function witness:** Two simultaneous agent browser tasks compete for one mutable attached tab or scarce isolated cloud capacity; specific race is documented in first-party SKILL. The legitimate independent choice and owner: a developer-composed current browser-task resource owner chooses when several agents may share a bounded local daemon versus receive a named isolated daemon/cloud browser. Choose serialize this task, grant isolated named daemon, defer, or provision an authorized cloud lane while respecting quota and ownership. The effect and feedback must be The selected task receives only its scoped browser lane and a later real operation/closure event changes available lane state; unauthorized cross-lane use fails closed..
 
-**Disturbance:** competing browser task commitments across one serialized local lane, isolated remote lanes and browser-budget/permission restrictions. [Issue #375](https://github.com/browser-use/browser-harness/issues/375) and [#582](https://github.com/browser-use/browser-harness/issues/582) show real multi-task interference, but not proven need for dynamic autonomous whole-work decisions. S2 already attenuates collision. S3 would decide **which current tasks and commitments obtain authorized resources under priorities/caps**. This is not task decomposition or individual tab ownership.
+**Counterfactual owner test:** Remove the optional developer-composed S3 decision actor but keep current source machinery: First-party SKILL.md describes one mutable attached tab and required serialization, named daemon fallback and cloud browser isolation. Daemon has session-scoped locks; deterministic tab isolation already covers S2, not autonomous whole-task admission. The specific extra choice would then be missing: One-tab collision safety and a separate optional resource allocation decision are different functions. A lock alone does not give an autonomous whole-task priority choice; proof is needed that enforcement covers all relevant browser entrypoints.. A mere generic hook or another model call does not count.
 
-**Decisive right:** developer-composed autonomous resource manager chooses from allowed admit_local, defer, or admit_remote options. **Authority:** parent host/user grants eligible task identities, available lanes and cloud budget; manager cannot alter parent identity/policy. **Supporting mechanism:** daemon and admin enforce the selected decision. **Return:** a later real browser action result, denial or task completion tied to decision_id and observed by the SAME S3 manager, changing later priorities/commitments.
+**Possible methodological negative control:** If baseline first-party code already closes the exact owner/choice/effect/return at the supported boundary, or only a human parent may choose, report native equivalence and withdraw the new C design rather than regrade.
 
-**Counterfactual:** remove the agent manager: the normal host can still serially operate the browser, but opt-in S3 resource-choice discretion does not exist; deterministic checks simply deny or use an explicitly authorized fallback. No S3=A is claimed.
+**Contributor / maintainer priorities:** NOT_STATED as approval of this exact VSM construction; third-party product direction remains the maintainer's.
 
-## 2. Source-pinned Track A vs Track B
+## 2. Source-pinned baseline and parallel native Track A / on-top Track B
 
-| Needed S3-specific property | Track A original native / issue or PR | Track B first-party delta | Refutation |
+**Original native workflow:** First-party SKILL.md describes one mutable attached tab and required serialization, named daemon fallback and cloud browser isolation. Daemon has session-scoped locks; deterministic tab isolation already covers S2, not autonomous whole-task admission. First-party pinned source: [SKILL.md](https://github.com/browser-use/browser-harness/blob/22ecf8545d67c474fa024643632d70af28b7fa0e/SKILL.md) and [src/browser_harness/daemon.py](https://github.com/browser-use/browser-harness/blob/22ecf8545d67c474fa024643632d70af28b7fa0e/src/browser_harness/daemon.py).
+
+**Closest existing solution:** Prefer the documented SKILL serialization, existing named daemon and isolated remote browser when adequate; do not vendor a general scheduler.
+
+**Relevant original Issues/PRs:** https://github.com/browser-use/browser-harness/issues/1022 (OPEN, agent-owned tabs). Historical fork case references other issue proposals, not assumed merged; original PR #626 CLOSED_UNMERGED (daemon lifecycle hardening).. Labels such as OPEN or CLOSED are current at this follow-up only where checked; unverified heads are not treated as merged.
+
+| Required C link or operator outcome | Track A: shipped/current source | Track B: minimum integration | Falsifier |
 | --- | --- | --- | --- |
-| Present commitments and resources | [SKILL](https://github.com/browser-use/browser-harness/blob/fe4a2cd3dd308e8de929621e64e7f284d7a124d7/SKILL.md) one mutable local lane vs separate remote; [daemon](https://github.com/browser-use/browser-harness/blob/fe4a2cd3dd308e8de929621e64e7f284d7a124d7/src/browser_harness/daemon.py) attached session; [admin](https://github.com/browser-use/browser-harness/blob/fe4a2cd3dd308e8de929621e64e7f284d7a124d7/src/browser_harness/admin.py) cloud provisioning | Opt-in scoped task/lane commitments, capacity/budget, live epoch and priority snapshot, never enumerate unrelated tabs | If only tab IDs exist, this is S2 substrate, not S3 view |
-| Bounded lawful alternatives | Existing host chooses serialization or cloud; open [#1022](https://github.com/browser-use/browser-harness/pull/1022) at 06e4d7ca0d7327a0b5b886604ba7d35547f0a728 prevents cross-agent tab races | Produce permitted admit_local/defer/admit_remote options under parent caps | Hardcoded transport scheduling not discretionary control |
-| Composed S3 owner | [CLI](https://github.com/browser-use/browser-harness/blob/fe4a2cd3dd308e8de929621e64e7f284d7a124d7/src/browser_harness/run.py) and [MCP](https://github.com/browser-use/browser-harness/blob/fe4a2cd3dd308e8de929621e64e7f284d7a124d7/src/mcp_server.py) have generic browser calls, not this S3 port | First-party request/decision API specifically for resource/commitment selection; developer binds autonomous manager actor | No actor-choice or authorization leads to generic callback, not C |
-| Enforcement and scope | [helpers](https://github.com/browser-use/browser-harness/blob/fe4a2cd3dd308e8de929621e64e7f284d7a124d7/src/browser_harness/helpers.py) raw cdp() and IPC; [#911](https://github.com/browser-use/browser-harness/pull/911) and [#760](https://github.com/browser-use/browser-harness/pull/760) OPEN owner scope proposals | Server-side atomic lease/epoch check before opted-in CDP attach, input, navigate, close and cloud provisioning | Client-side check, stale lease or raw CDP bypass |
-| Subsequent corrective feedback | Daemon returns action status; [recorder](https://github.com/browser-use/browser-harness/blob/fe4a2cd3dd308e8de929621e64e7f284d7a124d7/src/browser_harness/recorder.py) logs; [#1039](https://github.com/browser-use/browser-harness/pull/1039) OPEN run self-report | decision_id ↔ actual later browser action/denial ↔ bounded task release/failure event, manager sees new snapshot | Queue receipt or unverified S1 success claim is insufficient |
-| Other functions | [#1025](https://github.com/browser-use/browser-harness/pull/1025) OPEN saved-script drift detection, video/privacy review and host permission | NONE for S3*/S4/S5 in this P0; keep existing functions/parent separate | No cargo-cult upgrade to all six |
+| Bounded whole-function decision | First-party SKILL.md describes one mutable attached tab and required serialization, named daemon fallback and cloud browser isolation. Daemon has session-scoped locks; deterministic tab isolation already covers S2, not autonomous whole-task admission. | Choose serialize this task, grant isolated named daemon, defer, or provision an authorized cloud lane while respecting quota and ownership. | One-tab collision safety and a separate optional resource allocation decision are different functions. A lock alone does not give an autonomous whole-task priority choice; proof is needed that enforcement covers all relevant browser entrypoints. |
+| Lawful downstream effect | Source entrypoints at SKILL.md and src/browser_harness/daemon.py | The selected task receives only its scoped browser lane and a later real operation/closure event changes available lane state; unauthorized cross-lane use fails closed. | No lease, cross-lane ownership mismatch, stale tab, exhausted cloud budget or owner outage blocks forbidden action and preserves existing single-agent behavior. |
 
-All referenced original PRs were open when inspected and NOT included in pinned main. In particular #1022 belongs to tab ownership/S2; it is a reusable safety dependency and not an S3 decision actor. #1025 and #1039 cannot be silently treated as shipped. The user/operator request for autonomous resource management is HYPOTHETICAL; the S2 shared-work pressure itself is OBSERVED.
+**On-top distinctness:** One-tab collision safety and a separate optional resource allocation decision are different functions. A lock alone does not give an autonomous whole-task priority choice; proof is needed that enforcement covers all relevant browser entrypoints. First prefer the exact native solution; a copied supervisor abstraction is insufficient.
 
-## 3. Minimum complete first-party C design
+**Source ambiguity / rights blockers:** Future source HEAD/PR changes, reviewer identity, permission of the original owner, and tests are unverified. A matched fork research write does not authorize external original actions or code changes. No evidence-free demand assumption.
 
-The necessary design may use one resource-admission module under src/browser_harness, exposed at supported CLI/MCP and enforced by the daemon, rather than a new standalone management framework. Exact physical port count is not prescribed.
+## 3. Minimal complete S3 first-party C construction
 
-**Source-native proposed flow:**
+**Required property:** A first-party S3-specific path to install a legitimate autonomous decision owner, enforce its selected lawful alternative, and return later operational evidence.
 
-1. First-party opt-in host submits scoped task_id, principal, current commitment, priority/deadline, permitted lanes and parent-signed/validated budget. A snapshot returns bounded current capacity/leases and versions; it must NOT reveal other agents' pages or credentials.
-2. First-party S3 interface returns valid options local/admit, defer, remote/admit only if separately authorized; developer-supplied autonomous manager decides. No manager means explicit safe abstention, not fictitious autonomy.
-3. Manager submits decision with snapshot version. The daemon (and remote-provisioning path in admin) atomically verifies principal, lane, lease and epoch before browser side effects. Stale, lost or revoked owners cannot act, including through raw CDP/MCP.
-4. First-party return path correlates decision_id with later browser operation result, error/denial and bounded task completion/release; the manager receives that changed commitment state and can exercise a new current-resource decision.
-5. Existing single-agent local workflow remains default when opt-in not configured; cloud keys, liveUrl and nontrivial billing stay under parent budget and authentication. A manager cannot self-authorize them.
+| Necessary native component or port | Existing first-party source | Smallest proposed change / integration | Legitimate owner, effect, return |
+| --- | --- | --- | --- |
+| Decision evidence and invocation | [SKILL.md](https://github.com/browser-use/browser-harness/blob/22ecf8545d67c474fa024643632d70af28b7fa0e/SKILL.md) | At existing BU_NAME, current-tab and cloud provision/stop seams, add an optional bounded task-admission decision with an owned resource snapshot, capability-limited lease and proven task-action/release feedback. | a developer-composed current browser-task resource owner chooses when several agents may share a bounded local daemon versus receive a named isolated daemon/cloud browser |
+| Bound decision and later feedback | [src/browser_harness/daemon.py](https://github.com/browser-use/browser-harness/blob/22ecf8545d67c474fa024643632d70af28b7fa0e/src/browser_harness/daemon.py) | The selected task receives only its scoped browser lane and a later real operation/closure event changes available lane state; unauthorized cross-lane use fails closed. | Choose serialize this task, grant isolated named daemon, defer, or provision an authorized cloud lane while respecting quota and ownership. |
 
-**Why this is proposed C, not already A or a generic hook:** original first-party substrate includes action and cloud lifecycle endpoints, but lacks a resource-specific discretionary owner port and feedback. A developer must compose an independent autonomous S3 manager with real bounded authority. The proposed native port is function-specific, reaches later S1 behaviour, and provides return; it would be eligible for independent Index assessment **only after** original first-party implementation and evidence, never from this plan.
+**Architectural C-sufficiency argument:** Native baseline: First-party SKILL.md describes one mutable attached tab and required serialization, named daemon fallback and cloud browser isolation. Daemon has session-scoped locks; deterministic tab isolation already covers S2, not autonomous whole-task admission. The key residual is One-tab collision safety and a separate optional resource allocation decision are different functions. A lock alone does not give an autonomous whole-task priority choice; proof is needed that enforcement covers all relevant browser entrypoints. The strongest scoped optional solution is At existing BU_NAME, current-tab and cloud provision/stop seams, add an optional bounded task-admission decision with an owned resource snapshot, capability-limited lease and proven task-action/release feedback. Alternative one: use native/manual Prefer the documented SKILL serialization, existing named daemon and isolated remote browser when adequate; do not vendor a general scheduler. Alternative two: avoid building if protected authority or actual feedback cannot be established. This proposal claims constructibility, not new implemented grade.
 
-**P0:** S3=— -> S3=C. **P1:** scoped state, #1022 interoperability, lease enforcement at IPC edge, permission/billing guards, real feedback, native modes and matched A/B tests. **P2:** NONE. No S3*/S4/S5 policy agents or unrequested parent modes.
+**Explicit non-goals:** No unrelated function upgrades, blanket task guardian, unrequested S5 authority, generic provider dependency, automatic external PR, or forced adoption.
 
-## 4. Derived future acceptance (NOT_RUN)
+**Implementation dependency graph:** Verify pinned current source and accepted assessment -> resolve P1 native rights/overlap/feedback proof -> implement minimal P0 only with separately authorized product work -> run native positive/negative closure tests -> reconsider adoption based on measured benefit.
 
-Source-native test command in [AGENTS.md](https://github.com/browser-use/browser-harness/blob/fe4a2cd3dd308e8de929621e64e7f284d7a124d7/AGENTS.md): uv run --with pytest python -m pytest tests/unit -q. Python 3.12.3 was present in the inspected dev-alpha-2 runner; neither uv nor pytest was installed. Python AST-only parse of 33 tracked source/test Python files succeeded; **no native pytest was executed**. Integration tests may require a live browser/CDP.
+## 4. Priorities, optional alternative and stopping rules
 
-| Test | Setup | Positive/negative witness |
-| --- | --- | --- |
-| Competing tasks and alternative decisions | Two task identities A/B, one shared local lane, independent supplied manager | Manager chooses admit A/defer B, browser actually executes A and denies B; alternate lawful choice reverses results; decision-aware feedback changes subsequent manager snapshot |
-| Authorized capacity expansion | Task A requires local signed-in Chrome, B allows remote; explicit max_cloud=1 and authenticated cloud | Manager chooses A local/B remote; correct later browser instances/actions; max_cloud=0 or missing credentials fails closed before remote API or charges |
-| Stale/revoked owner and race | Concurrent clients, same tab URL, task identity mismatch, stale epoch, dead waiter | No action or tab metadata leakage across owners; invalid lease denied before attach/navigate/close; released capacity returns to manager |
-| Missing manager and default compatibility | No S3 composition and standard CLI/MCP existing modes | No fabricated choice, opt-in fails closed; default single-agent behaviour unchanged |
-| Native economic counterfactual | Same work and browser-budget constraints under host FIFO/priority queue and cloud isolation | Compare complete task outcome, right-tab effects, engineering/review/maintenance cost and cloud bill; stop if simpler path is at least as useful and cheaper |
+**P0 and P1:** P0 is Opt-in first-party browser-resource-admission API with current workload snapshot, bounded local/defer/authorized-cloud options, developer-composed autonomous S3 decision owner, atomic scoped lease enforcement, and real subsequent browser action/commitment feedback returned to owner P1 is Establish permitted host-supplied current task commitments and priority envelope; check #1022 and #911 owner scope overlap; add lease/epoch enforcement before opted-in CDP effects; prove later task feedback, CLI/MCP distribution and safe cloud budget; compare simple host queue under matched tasks. Priorities are inherited, not newly changed.
 
-**Falsifier:** if no distinct lawful whole-current decision and server effect/feedback can be established, the design is not a complete S3=C constructor. If an existing host queue accomplishes the same with less total cost or the upstream maintainer rejects the scope, decline to implement despite proposal-stage GO. No numeric benefit, PASS count, user demand or release claims inferred.
+**P2:** NONE — no second function or obligatory parent-governed mode. No forced second VSM function.
 
-## 5. Ownership, prior comparison and handoff
+**Alternative path:** Prefer the documented SKILL serialization, existing named daemon and isolated remote browser when adequate; do not vendor a general scheduler.. Prefer this if it closes the same operator outcome with no independent C need.
+
+**Stop:** Complete native equivalence, impossible independent actor right, no enforced return, policy veto or missing indispensable evidence triggers NO_GO/BLOCKED under the parent protocol. A missing measured saving is not by itself NO_GO.
+
+## 5. Future source-native acceptance — derive tests, do not copy a matrix
+
+**Native test commands and entry points:** Original tests/unit/test_daemon.py and tests/unit/test_admin.py are native test entrypoints; a Python test suite exists. No tests executed in this run.
+
+**Positive functional closure:** With two real browser-task requests, verify the installed owner can lawfully choose local serialization versus permitted isolated lane, and the next browser operation plus release shows the choice.
+
+**Independent alternative (where applicable):** Choose serialize this task, grant isolated named daemon, defer, or provision an authorized cloud lane while respecting quota and ownership. A genuine owner should be able to make two lawful different choices under different bounded contexts, not simply follow an always-grant rule.
+
+**Negative authority and compatibility (where applicable):** No lease, cross-lane ownership mismatch, stale tab, exhausted cloud budget or owner outage blocks forbidden action and preserves existing single-agent behavior.
+
+**Matched native alternative:** Prefer the documented SKILL serialization, existing named daemon and isolated remote browser when adequate; do not vendor a general scheduler. Execute the same task once with current native behavior and once with conditional construction. No results or economics have yet been collected.
+
+## 6. Proposal verdict, falsification, evidence ownership and handoff
 
 **Proposal-stage decision:** GO
+
 **Research disposition:** NEEDS_EVIDENCE
-**Target transition:** S3=— -> S3=C
 
-**Validation state:** NOT_RUN. **Cost status:** NOT_MEASURED.
+**Primary falsifier:** With manager removed, there must be no independent autonomous whole-current priority choice; an unauthorized lease, bypassable raw CDP action or missing later real-action return defeats the proposed C chain
 
-Index owns accepted assessment and regrading; Profile and Skills own VSM semantics/method; original owns code and PR decisions; fork-local [roadmap.md](roadmap.md) owns this proposal and [issue.md](issue.md) its Human rendering. Prior [2026-11-19 NO_GO revision](https://github.com/opensiro-contributions/browser-harness/commit/c6df76d4eee6190a65623c85f76147f0ba7f87c1) was read only after independently selecting this C path and remains an attributed historical decision.
+**Validation state:** NOT_RUN; proposal only, no native tests.
 
-**No product source edit, public fork Issue, original Issue/comment/PR, charged cloud call or Index grade is claimed.** Implementation and outward publication need independent permissions. AI-generated plan, not independently human-reviewed code.
+**Ownership of truth:** Profile owns semantics; Skills owns assessment method; Index owns historical accepted classification; original browser-use/browser-harness owns product change and maintainer choice; the [roadmap.md](roadmap.md) case receipt owns these decisions.
+
+**Cost status:** NOT_MEASURED.
+
+**Next permitted action:** Source-verify the narrow A/B comparison at current original HEAD and test scope under new explicit permission, or keep this as an unpublished research case.
+
+**Human backlink:** [issue.md](issue.md); **case receipt:** [roadmap.md](roadmap.md).
+
+**AI disclosure:** Drafted with AI; no native execution, maintainer consent, economic proof or independently verified value claimed.
