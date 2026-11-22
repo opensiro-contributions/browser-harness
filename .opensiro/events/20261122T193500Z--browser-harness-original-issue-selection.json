@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "20261122T193500Z--browser-harness-original-issue-selection",
+  "recorded_at": "2026-11-22T19:35:00Z",
+  "actor": "OpenSiro AI-assisted upstream publication preparation",
+  "kind": "CHECKPOINT",
+  "decision": "SELECTED_EXISTING_CASE_FOR_ORIGINAL_ISSUE_PREPARATION; SOURCE_NATIVE_REVIEW_IN_PROGRESS; EXTERNAL_PUBLICATION_NOT_APPROVED",
+  "original_repository": "browser-use/browser-harness",
+  "original_head_observed": "797f2d05e30e58b217ff621a99d302d712dc38da",
+  "case_id": "browser-resource-control-20261117",
+  "protocol_version": "0.18.3",
+  "case_branch": "opensiro/meta",
+  "owner_control_observed": "ALLOW",
+  "attention_observed": "ACTIVE",
+  "source_first_checkpoint": "https://github.com/opensiro/upstream/issues/58",
+  "pilot": "https://github.com/opensiro/upstream/issues/93",
+  "publication": "NOT_PUBLISHED",
+  "native_tests": "NOT_RUN"
+}
