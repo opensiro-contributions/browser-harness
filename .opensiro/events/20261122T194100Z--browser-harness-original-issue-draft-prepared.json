@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "20261122T194100Z--browser-harness-original-issue-draft-prepared",
+  "recorded_at": "2026-11-22T19:41:00Z",
+  "actor": "OpenSiro AI-assisted Upstream original Issue preparation",
+  "kind": "PREPARED",
+  "original_repository": "browser-use/browser-harness",
+  "original_head_observed": "797f2d05e30e58b217ff621a99d302d712dc38da",
+  "case_id": "browser-resource-control-20261117",
+  "working_fork": "opensiro-contributions/browser-harness",
+  "working_branch": "opensiro/meta",
+  "protocol_version": "0.18.3",
+  "decision": "PREPARED_EXACT_UNAPPROVED_ORIGINAL_ISSUE; HUMAN_CHECKBOXES_OUTSTANDING; NO_EXTERNAL_POST",
+  "target_transition": "S3=— -> S3=C",
+  "native_template_path": ".github/ISSUE_TEMPLATE/feature-request.yml",
+  "native_template_blob_sha": "0953f68b317df14ce4822697c6e5a06628ebcff2",
+  "original_title_sha256": "37e8bcff5ec848c8657d1a2a8c2c710d49e33c7bd0a76e3e0b928f5e4c927118",
+  "original_body_sha256": "7573bbc897b4b4f1bfa0743ed8a072a085ab24d14ef6214753a4c790c64aefb7",
+  "canonical_case_structure": "PASS",
+  "canonical_publication_template": "PASS",
+  "original_payload_structure": "PASS",
+  "original_native_issue_route": "PASS",
+  "original_native_checkbox_gate": "PENDING_TWO_HUMAN_ATTESTATIONS",
+  "original_publication": "NOT_PUBLISHED",
+  "product_code": "NOT_IMPLEMENTED",
+  "native_acceptance_tests": "NOT_RUN",
+  "cost": "NOT_MEASURED",
+  "original_issues_checked": [
+    375,
+    582,
+    901
+  ],
+  "original_prs_checked": [
+    760,
+    911,
+    1022,
+    1025,
+    1039
+  ]
+}

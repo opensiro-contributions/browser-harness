@@ -12,6 +12,8 @@ The first-pass independent decision was recorded before reading the previous for
 - Accepted assessment blob SHA: 7522febc97e2eff75e78ad781cec9ac64f480a94
 - Accepted review ref: afbcc381b963040c19627d788e40c7e7663171ee
 - Accepted reviewed at: 2026-09-18
+- Accepted Profile version: 0.2.2
+- Accepted Methodology version: 0.3.1
 - System in focus: First-party Browser Harness standard CLI, daemon, CDP helpers, skill and MCP plus optional local/cloud browser modes; external coding agents act as S1 workers, while private Cloud management and repo development governance are excluded
 - Receipt contract: proposal-gate
 - Repository-wide source map: 267 tracked original files; README, AGENTS, LICENSE, CONTRIBUTING, SKILL, interaction/domain skills, Python CLI/daemon/admin/helpers/IPC/recorder/telemetry/video/MCP, unit/integration tests, release workflow, active Issues and exact open PR patches
