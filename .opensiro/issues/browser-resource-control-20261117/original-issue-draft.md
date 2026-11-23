@@ -6,8 +6,8 @@ This is a **plan-only, optional architecture proposal**, adapted from one existi
 
 ### Before submitting
 
-- [ ] I searched existing issues and discussions.
-- [ ] This is a feature request, not a bug.
+- [x] I searched existing issues and discussions.
+- [x] This is a feature request, not a bug.
 
 ### Problem
 
